@@ -9,18 +9,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float torqueAmount = 1.2f;    // Độ nhạy khi xoay - càng lớn xoay càng nhanh
     [SerializeField] private LayerMask groundLayer;        // Layer của mặt đất/tuyết
     [SerializeField] private Transform groundCheck;        // Điểm kiểm tra va chạm với đất
-    
+
     // --- THÔNG SỐ VẬT LÝ ---
-    [SerializeField] private float accelerationRate = 30f;      // Tốc độ tăng tốc - càng lớn tăng tốc càng nhanh
     [SerializeField] private float decelerationRate = 2f;       // Độ ma sát - càng lớn dừng càng nhanh
     [SerializeField] private float minSpeedThreshold = 2f;      // Tốc độ tối thiểu để duy trì chuyển động
-    [SerializeField] private float slopeSpeedMultiplier = 6f;   // Hệ số tăng tốc khi xuống dốc
     [SerializeField] private float gravityMultiplier = 2.2f;    // Hệ số trọng lực - càng lớn càng nặng
-    [SerializeField] private float minSlopeAngle = 5f;          // Góc dốc tối thiểu để bắt đầu trượt tự động
     [SerializeField] private float moveForce = 60f;             // Lực di chuyển khi nhấn A/D - càng lớn di chuyển càng nhanh
-    
+
     // --- HỆ THỐNG CÂN BẰNG ---
-    [SerializeField] private float balanceForce = 3.5f;           // Lực giữ thăng bằng - càng lớn càng khó nghiêng
+    [SerializeField] private float balanceForce = 3.5f;         // Lực giữ thăng bằng - càng lớn càng khó nghiêng
     [SerializeField] private float maxBalanceAngle = 35f;       // Góc nghiêng tối đa cho phép
     [SerializeField] private float balanceSpeed = 10f;          // Tốc độ cân bằng lại - càng lớn càng nhanh
     [SerializeField] private float stabilityForce = 6f;         // Lực ổn định - giúp không bị lật
@@ -28,28 +25,24 @@ public class PlayerController : MonoBehaviour
     // --- ĐIỀU KHIỂN TRÊN KHÔNG ---
     [SerializeField] private float airRotationSpeed = 180f;     // Tốc độ xoay cơ bản khi nhấn W/S trên không
     [SerializeField] private float maxAirRotationSpeed = 250f;  // Tốc độ xoay tối đa trên không
-    
+
     // --- BIẾN PRIVATE ---
     private bool isGrounded;           // Kiểm tra có đang chạm đất không
     private Rigidbody2D rb;           // Component điều khiển vật lý
-    private float currentSpeed;        // Tốc độ hiện tại
     private Animator animator;         // Component điều khiển animation
-    private float lastSlopeAngle;     // Góc dốc cuối cùng
-    private Vector2 lastVelocity;     // Vận tốc cuối cùng
 
     private void Awake()
     {
         // Khởi tạo các component cần thiết
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        currentSpeed = baseSpeed;
-        
+
         // Thiết lập các thông số vật lý cơ bản
         rb.gravityScale = 2f * gravityMultiplier;  // Điều chỉnh trọng lực
         rb.linearDamping = 0.001f;                 // Giảm ma sát khi di chuyển
         rb.angularDamping = 0.5f;                  // Giảm ma sát khi xoay
         rb.mass = 2f;                             // Khối lượng của nhân vật
-        
+
         rb.constraints = RigidbodyConstraints2D.None;  // Không giới hạn chuyển động
         rb.freezeRotation = false;                     // Cho phép xoay
     }
@@ -59,7 +52,6 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleJump();
         UpdateAnimation();
-        lastVelocity = rb.linearVelocity;
 
         // Debug logs
         Debug.Log($"Tốc độ hiện tại: {rb.linearVelocity.magnitude:F2} | " +
@@ -160,25 +152,6 @@ public class PlayerController : MonoBehaviour
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 float slopeDir = -Mathf.Sign(hit.normal.x);
 
-                // Lực trượt tự nhiên theo độ dốc
-                if (slopeAngle > minSlopeAngle)
-                {
-                    Vector2 slopeVector = new Vector2(-hit.normal.y, hit.normal.x) * slopeDir;
-                    float slopeForce = baseSpeed * (slopeAngle / 45f);
-                    
-                    // Kiểm tra tốc độ trước khi thêm lực
-                    if (rb.linearVelocity.magnitude < maxSpeed)
-                    {
-                        rb.AddForce(slopeVector * slopeForce);
-
-                        // Tăng tốc thêm khi xuống dốc
-                        if (Vector2.Dot(rb.linearVelocity, slopeVector) > 0)
-                        {
-                            rb.AddForce(slopeVector * slopeSpeedMultiplier);
-                        }
-                    }
-                }
-
                 // Xử lý input A/D
                 if (Mathf.Abs(moveInput) > 0.1f)
                 {
@@ -247,5 +220,11 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("isSliding", isSliding);
         animator.SetBool("isJumping", isJumping);
+    }
+
+    // Hàm trả về tốc độ hiện tại của player
+    public float GetCurrentSpeed()
+    {
+        return rb.linearVelocity.magnitude;
     }
 }
