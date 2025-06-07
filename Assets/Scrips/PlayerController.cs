@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // --- CÁC THÔNG SỐ CƠ BẢN ---
-    [SerializeField] private float baseSpeed = 6f;        // Tốc độ cơ bản khi trượt
     [SerializeField] private float maxSpeed = 20f;         // Tốc độ tối đa không thể vượt quá
     [SerializeField] private float jumpForce = 10f;        // Lực nhảy - càng lớn nhảy càng cao
     [SerializeField] private float torqueAmount = 1.2f;    // Độ nhạy khi xoay - càng lớn xoay càng nhanh
@@ -52,12 +51,6 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleJump();
         UpdateAnimation();
-
-        // Debug logs
-        Debug.Log($"Tốc độ hiện tại: {rb.linearVelocity.magnitude:F2} | " +
-                  $"Input ngang: {Input.GetAxis("Horizontal"):F2} | " +
-                  $"Input dọc: {Input.GetAxis("Vertical"):F2} | " +
-                  $"Đang chạm đất: {isGrounded}");
     }
 
     void FixedUpdate()
@@ -200,7 +193,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            Debug.Log("Nhảy!");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -211,12 +203,6 @@ public class PlayerController : MonoBehaviour
         // Tăng ngưỡng tốc độ để xác định trạng thái trượt
         bool isSliding = Mathf.Abs(rb.linearVelocity.x) > minSpeedThreshold;
         bool isJumping = !isGrounded;
-
-        // Thêm debug để kiểm tra
-        Debug.Log($"Animation State | Tốc độ X: {Mathf.Abs(rb.linearVelocity.x):F2} | " +
-                  $"Ngưỡng: {minSpeedThreshold} | " +
-                  $"isSliding: {isSliding} | " +
-                  $"isJumping: {isJumping}");
 
         animator.SetBool("isSliding", isSliding);
         animator.SetBool("isJumping", isJumping);
