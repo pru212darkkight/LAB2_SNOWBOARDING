@@ -58,7 +58,6 @@ public class GameMenuController : MonoBehaviour
         if (prevPageButton != null)
             prevPageButton.onClick.AddListener(OnPrevPageClick);
 
-        // Đăng ký sự kiện cho các nút level
         if (level1Button != null)
             level1Button.onClick.AddListener(() => LoadLevel(level1SceneName));
 
@@ -71,28 +70,25 @@ public class GameMenuController : MonoBehaviour
         // Đảm bảo các panel được ẩn khi bắt đầu
         if (gameLevelPanel != null)
             gameLevelPanel.SetActive(false);
-        
+
         if (optionPanel != null)
         {
             optionPanel.SetActive(false);
             InitializeOptionPages();
         }
 
-        // Đảm bảo các nút menu được hiển thị khi bắt đầu
         if (menuButtonsContainer != null)
             menuButtonsContainer.SetActive(true);
     }
 
     private void InitializeOptionPages()
     {
-        // Thiết lập hiển thị ban đầu cho các trang
         if (page1Container != null)
             page1Container.SetActive(true);
 
         if (page2Container != null)
             page2Container.SetActive(false);
 
-        // Ẩn nút Previous ở trang đầu tiên
         if (prevPageButton != null)
             prevPageButton.gameObject.SetActive(false);
 
@@ -106,18 +102,16 @@ public class GameMenuController : MonoBehaviour
     {
         if (currentPage == 1)
         {
-            // Chuyển sang trang 2
             if (page1Container != null)
                 page1Container.SetActive(false);
             if (page2Container != null)
                 page2Container.SetActive(true);
-            
+
             currentPage = 2;
-            
-            // Hiển thị/ẩn các nút điều hướng
-            if (prevPageButton != null) 
+
+            if (prevPageButton != null)
                 prevPageButton.gameObject.SetActive(true);
-            if (nextPageButton != null) 
+            if (nextPageButton != null)
                 nextPageButton.gameObject.SetActive(false);
         }
     }
@@ -126,18 +120,16 @@ public class GameMenuController : MonoBehaviour
     {
         if (currentPage == 2)
         {
-            // Chuyển về trang 1
             if (page1Container != null)
                 page1Container.SetActive(true);
             if (page2Container != null)
                 page2Container.SetActive(false);
-            
+
             currentPage = 1;
-            
-            // Hiển thị/ẩn các nút điều hướng
-            if (prevPageButton != null) 
+
+            if (prevPageButton != null)
                 prevPageButton.gameObject.SetActive(false);
-            if (nextPageButton != null) 
+            if (nextPageButton != null)
                 nextPageButton.gameObject.SetActive(true);
         }
     }
@@ -151,15 +143,15 @@ public class GameMenuController : MonoBehaviour
 
     private void OnOptionButtonClick()
     {
-        if(gameLevelPanel != null)
+        if (gameLevelPanel != null)
             gameLevelPanel.SetActive(false);
-        // Hiện panel option và ẩn các nút menu
+
         if (optionPanel != null)
         {
             optionPanel.SetActive(true);
             InitializeOptionPages(); // Reset về trang đầu tiên khi mở option
         }
-        
+
         if (menuButtonsContainer != null)
             menuButtonsContainer.SetActive(false);
     }
@@ -169,7 +161,7 @@ public class GameMenuController : MonoBehaviour
         // Ẩn panel option và hiện lại các nút menu
         if (optionPanel != null)
             optionPanel.SetActive(false);
-        
+
         if (menuButtonsContainer != null)
             menuButtonsContainer.SetActive(true);
     }
@@ -177,11 +169,11 @@ public class GameMenuController : MonoBehaviour
     private void OnExitButtonClick()
     {
         // Thoát game
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+#else
+        Application.Quit();
+#endif
     }
 
     private void OnCloseButtonClick()
