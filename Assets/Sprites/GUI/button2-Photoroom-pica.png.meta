@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: b4a9cdaa157ead54d9b86a0af284b4da
+guid: dec41e3b18dd40c4a8336d628fda181e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2981527314276077240
-    second: button2-Photoroom_0
+      213: 6889363410960348207
+    second: button2-Photoroom-pica_0
   - first:
-      213: 5140009091364716605
-    second: button2-Photoroom_1
+      213: -5200721802478165371
+    second: button2-Photoroom-pica_1
   - first:
-      213: -9017530356354370174
-    second: button2-Photoroom_2
+      213: -4492390925453792514
+    second: button2-Photoroom-pica_2
+  - first:
+      213: 8180261087898753898
+    second: button2-Photoroom-pica_3
+  - first:
+      213: 4008076468752265926
+    second: button2-Photoroom-pica_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button2-Photoroom_0
+      name: button2-Photoroom-pica_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 9
-        width: 405
-        height: 211
+        x: 213
+        y: 37
+        width: 1615
+        height: 842
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8becc87ab43806920800000000000000
-      internalID: 2981527314276077240
+      spriteID: f247dd6558feb9f50800000000000000
+      internalID: 6889363410960348207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button2-Photoroom_1
+      name: button2-Photoroom-pica_1
       rect:
         serializedVersion: 2
-        x: 502
-        y: 18
-        width: 192
-        height: 198
+        x: 2009
+        y: 73
+        width: 766
+        height: 790
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d308211290bf45740800000000000000
-      internalID: 5140009091364716605
+      spriteID: 582e8a3431353d7b0800000000000000
+      internalID: -5200721802478165371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button2-Photoroom_2
+      name: button2-Photoroom-pica_2
       rect:
         serializedVersion: 2
-        x: 750
-        y: 26
-        width: 192
-        height: 195
+        x: 3001
+        y: 82
+        width: 763
+        height: 798
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +197,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2853236faeb4bd280800000000000000
-      internalID: -9017530356354370174
+      spriteID: efa63284142d7a1c0800000000000000
+      internalID: -4492390925453792514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button2-Photoroom-pica_3
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 82
+        width: 173
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bd72a5e10268170800000000000000
+      internalID: 8180261087898753898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button2-Photoroom-pica_4
+      rect:
+        serializedVersion: 2
+        x: 3894
+        y: 82
+        width: 42
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2b498005c8f9730800000000000000
+      internalID: 4008076468752265926
       vertices: []
       indices: 
       edges: []
@@ -211,9 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      button2-Photoroom_0: 2981527314276077240
-      button2-Photoroom_1: 5140009091364716605
-      button2-Photoroom_2: -9017530356354370174
+      button2-Photoroom-pica_0: 6889363410960348207
+      button2-Photoroom-pica_1: -5200721802478165371
+      button2-Photoroom-pica_2: -4492390925453792514
+      button2-Photoroom-pica_3: 8180261087898753898
+      button2-Photoroom-pica_4: 4008076468752265926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

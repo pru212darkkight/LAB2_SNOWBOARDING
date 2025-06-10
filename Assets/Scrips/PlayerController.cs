@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 2f * gravityMultiplier;  // Điều chỉnh trọng lực
         rb.linearDamping = 0.001f;                 // Giảm ma sát khi di chuyển
         rb.angularDamping = 0.5f;                  // Giảm ma sát khi xoay
-        rb.mass = 2f;                             // Khối lượng của nhân vật
+        rb.mass = 2f;   
+        // Khối lượng của nhân vật
 
         rb.constraints = RigidbodyConstraints2D.None;  // Không giới hạn chuyển động
         rb.freezeRotation = false;                     // Cho phép xoay
