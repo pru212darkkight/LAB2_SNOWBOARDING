@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -182,7 +183,6 @@ public class PlayerController : MonoBehaviour
             HandleAirRotation();
         }
 
-        // Cập nhật hướng nhìn
         if (moveInput > 0)
             transform.localScale = new Vector3(0.4f, 0.45f, 1);
         else if (moveInput < 0)
@@ -201,7 +201,6 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        // Tăng ngưỡng tốc độ để xác định trạng thái trượt
         bool isSliding = Mathf.Abs(rb.linearVelocity.x) > minSpeedThreshold;
         bool isJumping = !isGrounded;
 
@@ -218,4 +217,62 @@ public class PlayerController : MonoBehaviour
     {
         return isGrounded;
     }
+
+
+    //giam toc
+
+    private Coroutine slowCoroutine;
+    private float originalDrag = 0f;
+
+
+    public void ReduceSpeedTemporarily(float factor, float duration)
+    {
+        if (slowCoroutine != null)
+            StopCoroutine(slowCoroutine);
+
+        slowCoroutine = StartCoroutine(SlowDownCoroutine(factor, duration));
+    }
+
+    private IEnumerator SlowDownCoroutine(float factor, float duration)
+    {
+        rb.linearVelocity *= factor;
+        originalDrag = rb.linearDamping;
+        rb.linearDamping += 5f;
+        yield return new WaitForSeconds(duration);
+        rb.linearDamping = originalDrag;
+    }
+    public void ReduceSpeed(float factor)
+    {
+        if (rb != null)
+        {
+            if (rb.linearVelocity.magnitude > maxSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            } 
+        }
+    }
+
+
+    /// tăng tốc
+
+    private Coroutine boostCoroutine;
+    private float originalMoveForce;
+
+    public void BoostSpeedTemporarily(float multiplier, float duration)
+    {
+        if (boostCoroutine != null)
+            StopCoroutine(boostCoroutine);
+        boostCoroutine = StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    {
+        originalMoveForce = moveForce;
+        moveForce *= multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveForce = originalMoveForce;
+    }
+
 }
