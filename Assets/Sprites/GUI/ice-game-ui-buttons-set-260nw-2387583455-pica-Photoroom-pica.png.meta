@@ -1,0 +1,668 @@
+fileFormatVersion: 2
+guid: 7a4bff7c41ff4d04eb3f1e210eb94861
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7468558149600634191
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_0
+  - first:
+      213: -8714294688633718198
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_1
+  - first:
+      213: 8475352994454354466
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_2
+  - first:
+      213: 9002399345026689947
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_3
+  - first:
+      213: -6810437665299045904
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_4
+  - first:
+      213: -1026611854543367228
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_5
+  - first:
+      213: -5615125687962147694
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_6
+  - first:
+      213: -2104350986983632037
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_7
+  - first:
+      213: 6103438388612678382
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_8
+  - first:
+      213: 6397111169764787605
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_9
+  - first:
+      213: 2463381122931998939
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_10
+  - first:
+      213: 8716814604853434596
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_11
+  - first:
+      213: -4542654107273755207
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_12
+  - first:
+      213: -3658903230840356498
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_13
+  - first:
+      213: -4177471897101447919
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_14
+  - first:
+      213: -537449086815098028
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_15
+  - first:
+      213: 7410958622221096830
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_16
+  - first:
+      213: -1707694110705730187
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_17
+  - first:
+      213: 5941097841561860267
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_18
+  - first:
+      213: 5003965218610091440
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_19
+  - first:
+      213: -3202255542284262365
+    second: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_0
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1123
+        width: 831
+        height: 982
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f456b432116a5a760800000000000000
+      internalID: 7468558149600634191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_1
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1701
+        width: 643
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4af9e7a62b901780800000000000000
+      internalID: -8714294688633718198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_2
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 1443
+        width: 1123
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22abe74e4a08e9570800000000000000
+      internalID: 8475352994454354466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_3
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 1512
+        width: 658
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b668ee182feec70800000000000000
+      internalID: 9002399345026689947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_4
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 1127
+        width: 499
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1e8e2d6077c71a0800000000000000
+      internalID: -6810437665299045904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_5
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 1063
+        width: 534
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3dcbf15fdb0c1f0800000000000000
+      internalID: -1026611854543367228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_6
+      rect:
+        serializedVersion: 2
+        x: 2477
+        y: 1088
+        width: 342
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29468dfdfe01312b0800000000000000
+      internalID: -5615125687962147694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_7
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 1089
+        width: 616
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53191a3de7dbc2e0800000000000000
+      internalID: -2104350986983632037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_8
+      rect:
+        serializedVersion: 2
+        x: 3639
+        y: 119
+        width: 297
+        height: 1332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2cdb580e4c3b450800000000000000
+      internalID: 6103438388612678382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_9
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 733
+        width: 1292
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595838e27ba17c850800000000000000
+      internalID: 6397111169764787605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_10
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 707
+        width: 367
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0c3ca6410bf2220800000000000000
+      internalID: 2463381122931998939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_11
+      rect:
+        serializedVersion: 2
+        x: 2167
+        y: 707
+        width: 361
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8d93f03b858f870800000000000000
+      internalID: 8716814604853434596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_12
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 723
+        width: 353
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b58a7e482045f0c0800000000000000
+      internalID: -4542654107273755207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_13
+      rect:
+        serializedVersion: 2
+        x: 3079
+        y: 586
+        width: 472
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e614b32b5e6f83dc0800000000000000
+      internalID: -3658903230840356498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_14
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 220
+        width: 931
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d471a5173a606c0800000000000000
+      internalID: -4177471897101447919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_15
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 247
+        width: 844
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b278f27e89a88f0800000000000000
+      internalID: -537449086815098028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_16
+      rect:
+        serializedVersion: 2
+        x: 2253
+        y: 281
+        width: 358
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e775b9a1a9309d660800000000000000
+      internalID: 7410958622221096830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_17
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 119
+        width: 306
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dbb5a014d0d48e0800000000000000
+      internalID: -1707694110705730187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_18
+      rect:
+        serializedVersion: 2
+        x: 3049
+        y: 118
+        width: 314
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba872267205037250800000000000000
+      internalID: 5941097841561860267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_19
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 118
+        width: 181
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b51aabaad7a17540800000000000000
+      internalID: 5003965218610091440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-game-ui-buttons-set-260nw-2387583455-pica-Photoroom-pica_20
+      rect:
+        serializedVersion: 2
+        x: 3952
+        y: 119
+        width: 66
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324ee12fc8d4f83d0800000000000000
+      internalID: -3202255542284262365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

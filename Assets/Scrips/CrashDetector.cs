@@ -3,18 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
-    [SerializeField] private float loadDelay = 1f;
+    [SerializeField] private float loadDelay = 0.5f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
         {
             Debug.Log("game over");
-            Invoke("ReloadScene", loadDelay);
+            if (GameManager.Instance == null)
+            {
+                Debug.LogError("GameManager.Instance is null!");
+                return;
+            }
+            GameManager.Instance.ShowGameOverWithDelay(loadDelay);
+            Debug.Log("Called ShowGameOverWithDelay");
         }
-    }
-
-    void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 7f46d893bfbde854791945c3f4a82819
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -917922659429705434
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_0
+  - first:
+      213: -8681846383277057932
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_1
+  - first:
+      213: -8154334345349682313
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_2
+  - first:
+      213: 1488111619907571183
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_3
+  - first:
+      213: 3691407507547637549
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_4
+  - first:
+      213: 3910903368867135617
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_5
+  - first:
+      213: -8453066949894192911
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_6
+  - first:
+      213: -4834530992256339313
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_7
+  - first:
+      213: -4153019446408750714
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_8
+  - first:
+      213: -1180227347828854120
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_9
+  - first:
+      213: -85205490288731280
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_10
+  - first:
+      213: -5911489253074965139
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_11
+  - first:
+      213: -4656417737949938959
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_12
+  - first:
+      213: -7312742149021871370
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_13
+  - first:
+      213: 1878062489439767225
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_14
+  - first:
+      213: -2029437892604523897
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_15
+  - first:
+      213: 3541281280934405801
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_16
+  - first:
+      213: -4429317793403993948
+    second: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 251
+        width: 273
+        height: 406
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62919616432e243f0800000000000000
+      internalID: -917922659429705434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 386
+        width: 267
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478d24a76b2e38780800000000000000
+      internalID: -8681846383277057932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 542
+        width: 95
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b2aadcd1cf5de80800000000000000
+      internalID: -8154334345349682313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 203
+        width: 289
+        height: 464
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedc8ba42a5d6a410800000000000000
+      internalID: 1488111619907571183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 275
+        width: 87
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d274698f1938a3330800000000000000
+      internalID: 3691407507547637549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 431
+        width: 50
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1804434a4e1564630800000000000000
+      internalID: 3910903368867135617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 429
+        width: 50
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f046f4356ca0ba80800000000000000
+      internalID: -8453066949894192911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 444
+        width: 95
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82b1fe4dab48ecb0800000000000000
+      internalID: -4834530992256339313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 279
+        width: 361
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689548f21d28d56c0800000000000000
+      internalID: -4153019446408750714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 348
+        width: 95
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 892b572fa7dfe9fe0800000000000000
+      internalID: -1180227347828854120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 253
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d6de048db26fda0800000000000000
+      internalID: -5911489253074965139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 93
+        width: 266
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa7aa3fcb4116fb0800000000000000
+      internalID: -4656417737949938959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 85
+        width: 158
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba0b0d32e7301a10800000000000000
+      internalID: 1878062489439767225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 72
+        width: 214
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a07953dfcf5d3e0800000000000000
+      internalID: -2029437892604523897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 83
+        width: 265
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6e5dfff88252130800000000000000
+      internalID: 3541281280934405801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 100
+        width: 94
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a086d63fe6e782c0800000000000000
+      internalID: -4429317793403993948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 59385539076818e4d9d689095690c51c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_0: -917922659429705434
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_1: -8681846383277057932
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_10: -85205490288731280
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_11: -5911489253074965139
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_12: -4656417737949938959
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_13: -7312742149021871370
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_14: 1878062489439767225
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_15: -2029437892604523897
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_16: 3541281280934405801
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_17: -4429317793403993948
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_2: -8154334345349682313
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_3: 1488111619907571183
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_4: 3691407507547637549
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_5: 3910903368867135617
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_6: -8453066949894192911
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_7: -4834530992256339313
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_8: -4153019446408750714
+      ice-glass-gui-elements-covered-260nw-2384939885-pica-Photoroom_9: -1180227347828854120
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
