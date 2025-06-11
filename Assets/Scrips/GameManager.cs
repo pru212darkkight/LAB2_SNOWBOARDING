@@ -232,4 +232,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver Panel activated");
         }
     }
+
+
+   
 }
