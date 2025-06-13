@@ -374,7 +374,10 @@ public class PlayerController : MonoBehaviour
     }
     private void ReactivateAllStoneColliders()
     {
-        StoneShieldInteraction[] stones = FindObjectsOfType<StoneShieldInteraction>();
+        StoneShieldInteraction[] stones = Object.FindObjectsByType<StoneShieldInteraction>(
+         FindObjectsSortMode.None
+     );
+
         foreach (var stone in stones)
         {
             stone.ReactivateCollider();
