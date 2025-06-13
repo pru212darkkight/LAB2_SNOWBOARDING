@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Net.Mail;
 
 public class GameMenuController : MonoBehaviour
 {
+    public static string LastPlayedScene { get; private set; }
+
     [Header("Panels")]
     [SerializeField] private GameObject gameLevelPanel;
     [SerializeField] private GameObject optionPanel;
@@ -186,6 +189,8 @@ public class GameMenuController : MonoBehaviour
 
     private void LoadLevel(string sceneName)
     {
+        PlayerPrefs.SetString("LastPlayedScene", sceneName);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(sceneName);
     }
 
