@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;           // Kiểm tra có đang chạm đất không
     private Rigidbody2D rb;           // Component điều khiển vật lý
     private Animator animator;         // Component điều khiển animation
+    //
+    [SerializeField] private GameObject helmetShieldPrefab;
+    private GameObject helmetShieldInstance;
+    private Animator shieldAnim;
+    private bool isShieldActive = false;
 
     private void Awake()
     {
@@ -45,7 +50,9 @@ public class PlayerController : MonoBehaviour
         // Khối lượng của nhân vật
 
         rb.constraints = RigidbodyConstraints2D.None;  // Không giới hạn chuyển động
-        rb.freezeRotation = false;                     // Cho phép xoay
+        rb.freezeRotation = false;   
+        
+        // Cho phép xoay
     }
 
     void Update()
@@ -227,6 +234,8 @@ public class PlayerController : MonoBehaviour
 
     public void ReduceSpeedTemporarily(float factor, float duration)
     {
+        if (isShieldActive) return; // Miễn nhiễm nếu có khiên
+
         if (slowCoroutine != null)
             StopCoroutine(slowCoroutine);
 
@@ -260,8 +269,11 @@ public class PlayerController : MonoBehaviour
 
     public void BoostSpeedTemporarily(float multiplier, float duration)
     {
+      
+
         if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
+
         boostCoroutine = StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
     }
 
@@ -275,4 +287,103 @@ public class PlayerController : MonoBehaviour
         moveForce = originalMoveForce;
     }
 
+    //
+    public void ActivateShield(float duration)
+    {
+        if (isShieldActive)
+        {
+            Debug.Log("Shield already active.");
+            return;
+        }
+
+        Debug.Log("Shield activated for " + duration + " seconds.");
+
+        helmetShieldInstance = Instantiate(helmetShieldPrefab, transform);
+        helmetShieldInstance.transform.localPosition = Vector3.zero;
+
+        shieldAnim = helmetShieldInstance.GetComponent<Animator>();
+        if (shieldAnim == null)
+        {
+            Debug.LogWarning("Animator not found on helmet shield prefab.");
+            Destroy(helmetShieldInstance);
+            return;
+        }
+
+        isShieldActive = true;
+        StartCoroutine(ShieldRoutine(duration));
+    }
+
+    private IEnumerator ShieldRoutine(float duration)
+    {
+        shieldAnim.Play("ShieldAppear");
+
+        yield return new WaitUntil(() =>
+            shieldAnim != null && shieldAnim.GetCurrentAnimatorStateInfo(0).IsName("ShieldIdle"));
+
+        float idleTime = duration - 2f;
+        if (idleTime > 0)
+            yield return new WaitForSeconds(idleTime);
+
+        if (helmetShieldInstance != null && shieldAnim != null)
+        {
+            shieldAnim.SetTrigger("FadeOut");
+            yield return new WaitForSeconds(2f);
+        }
+
+        if (helmetShieldInstance != null)
+            Destroy(helmetShieldInstance);
+
+        helmetShieldInstance = null;
+        shieldAnim = null;
+        isShieldActive = false;
+        ReactivateAllStoneColliders();
+
+        StartCoroutine(DelayedReactivation());
+    }
+   
+    private bool isShieldCooldown = false;
+
+    public bool IsInvulnerable()
+    {
+        return isShieldActive || isShieldCooldown;
+    }
+
+    public void ForceDeactivateShield()
+    {
+        if (!isShieldActive) return;
+
+        StopCoroutine("ShieldRoutine");
+
+        if (helmetShieldInstance != null)
+            Destroy(helmetShieldInstance);
+
+        helmetShieldInstance = null;
+        shieldAnim = null;
+        isShieldActive = false;
+
+        StartCoroutine(DelayedReactivation());
+
+        StartCoroutine(ShieldCooldownBuffer());
+        Debug.Log("Khiên đã bị hủy sớm do va chạm.");
+    }
+    private IEnumerator ShieldCooldownBuffer()
+    {
+        isShieldCooldown = true;
+        yield return new WaitForSeconds(1f); // Khoảng đệm để tránh va chạm kép
+        isShieldCooldown = false;
+    }
+    private void ReactivateAllStoneColliders()
+    {
+        StoneShieldInteraction[] stones = FindObjectsOfType<StoneShieldInteraction>();
+        foreach (var stone in stones)
+        {
+            stone.ReactivateCollider();
+        }
+    }
+
+    private IEnumerator DelayedReactivation()
+    {
+        yield return new WaitForSeconds(1.5f); // để player rời khỏi vùng va chạm
+        ReactivateAllStoneColliders();
+    }
 }
