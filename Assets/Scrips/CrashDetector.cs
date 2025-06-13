@@ -16,7 +16,6 @@ public class CrashDetector : MonoBehaviour
                 return;
             }
             GameManager.Instance.ShowGameOverWithDelay(loadDelay);
-            Debug.Log("Called ShowGameOverWithDelay");
         }
     }
 }
