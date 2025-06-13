@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     private float score = 0f;
-    private float lastXPos = 0f;
+    private float maxXPos = 0f;
 
     private void Awake()
     {
@@ -32,28 +31,26 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        lastXPos = playerTransform.position.x;
+        maxXPos = playerTransform.position.x;
         UpdateScoreText();
     }
 
     void Update()
     {
-        TrackMovementAndUpdateScore();
+        UpdateScoreBasedOnFurthestPosition();
     }
 
-    void TrackMovementAndUpdateScore()
+    void UpdateScoreBasedOnFurthestPosition()
     {
         float currentX = playerTransform.position.x;
-        float distanceMoved = currentX - lastXPos;
 
-        // Chỉ cộng điểm khi di chuyển về phía trước
-        if (distanceMoved > 0)
+        if (currentX > maxXPos)
         {
-            score += distanceMoved;
+            float distanceGained = currentX - maxXPos;
+            score += distanceGained;
+            maxXPos = currentX;
             UpdateScoreText();
         }
-
-        lastXPos = currentX;
     }
 
     void UpdateScoreText()
@@ -62,13 +59,14 @@ public class ScoreManager : MonoBehaviour
         {
             scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
         }
+
         Debug.Log("Score: " + Mathf.FloorToInt(score));
     }
 
     public void ResetScore()
     {
         score = 0;
-        lastXPos = playerTransform.position.x;
+        maxXPos = playerTransform.position.x;
         UpdateScoreText();
     }
 
