@@ -11,6 +11,8 @@ public class FinishLine : MonoBehaviour
         {
             Debug.Log("finish map");
             Invoke("ReloadScene", loadDelay);
+            //GlobalScoreManager.Instance.SaveScore(playerName, ScoreManager.Instance.GetScore());
+
         }
     }
     void ReloadScene()
