@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject winPanel;
 
     [Header("Buttons")]
     [SerializeField] private Button closeButton;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isGameOver = false;
+    private bool isLevelComplete = false;
     private GameObject previousPanel; // Track which panel opened settings
     private Vector2 savedVelocity;
     private float savedAngularVelocity;
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour
         // Reset game state
         Time.timeScale = 1f;
         isPaused = false;
-
+        isLevelComplete = false;
         // Make sure all panels are hidden initially
         if (pausePanel != null)
             pausePanel.SetActive(false);
@@ -38,6 +40,8 @@ public class GameManager : MonoBehaviour
             settingsPanel.SetActive(false);
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
+        if (winPanel != null)
+            winPanel.SetActive(false);
 
         // Singleton pattern
         if (Instance == null)
@@ -78,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void TogglePause()
     {
         // Don't allow pausing if game is over
-        if (isGameOver) return;
+        if (isGameOver || isLevelComplete) return;
 
         isPaused = !isPaused;
 
@@ -154,7 +158,7 @@ public class GameManager : MonoBehaviour
         // Reset game state
         Time.timeScale = 1f;
         isPaused = false;
-
+        isLevelComplete = false;
         // Clear the singleton instance
         Instance = null;
 
@@ -232,7 +236,55 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver Panel activated");
         }
     }
+    public void ShowWinPanelWithDelay(float delay)
+    {
+        if (winPanel == null)
+        {
+            Debug.LogError("Win Panel is not assigned in GameManager!");
+            return;
+        }
+        if (!isLevelComplete) // Only show if level is not already complete
+        {
+            StartCoroutine(ShowWinPanelCoroutine(delay));
+        }
+    }
+
+    private IEnumerator ShowWinPanelCoroutine(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        if (winPanel != null)
+        {
+            isLevelComplete = true;
+            winPanel.SetActive(true);
+            Time.timeScale = 0f;
+            Debug.Log("Level Complete! Win Panel activated");
+        }
+    }
+
+    public void NextLevel()
+    {
+        // Reset game state
+        Time.timeScale = 1f;
+        isPaused = false;
+        isLevelComplete = false;
+
+        // Load next scene
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            // If no more scenes, go back to menu
+            ExitToMenu();
+        }
+    }
+
+    public bool IsLevelComplete()
+    {
+        return isLevelComplete;
+    }
 
 
-   
 }
