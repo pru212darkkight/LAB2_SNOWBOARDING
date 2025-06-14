@@ -136,6 +136,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -372,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snapedit_1749808432721_0: 3119792165052607889
+      snapedit_1749808432721_1: -5629700544733357662
+      snapedit_1749808432721_2: 4105546820538838797
+      snapedit_1749808432721_3: -5870797889736820843
+      snapedit_1749808432721_4: 3369806587507858556
+      snapedit_1749808432721_5: -1219780642735283574
+      snapedit_1749808432721_6: -6567799529588629221
+      snapedit_1749808432721_7: 7960008028963032903
+      snapedit_1749808432721_8: 4733364918008575663
+      snapedit_1749808432721_9: -969178443016657824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
