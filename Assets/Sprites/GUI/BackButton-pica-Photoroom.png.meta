@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackButton-pica-Photoroom_0: 7734575829705654369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
