@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Ground
+  - Item
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -11,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -40,6 +43,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PanelUI
+    uniqueID: 2680269093
+    locked: 0
+  - name: Player
+    uniqueID: 475679975
+    locked: 0
+  - name: Ground
+    uniqueID: 3905367541
     locked: 0
   m_RenderingLayers:
   - Default
