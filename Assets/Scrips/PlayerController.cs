@@ -226,8 +226,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //giam toc
-
     private Coroutine slowCoroutine;
     private float originalDrag = 0f;
 
@@ -257,7 +255,7 @@ public class PlayerController : MonoBehaviour
             if (rb.linearVelocity.magnitude > maxSpeed)
             {
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
-            } 
+            }
         }
     }
 
@@ -269,7 +267,7 @@ public class PlayerController : MonoBehaviour
 
     public void BoostSpeedTemporarily(float multiplier, float duration)
     {
-      
+
 
         if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
@@ -340,7 +338,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(DelayedReactivation());
     }
-   
+
     private bool isShieldCooldown = false;
 
     public bool IsInvulnerable()
