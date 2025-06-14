@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 1356736171569693267}
   - component: {fileID: 684389510181707055}
   - component: {fileID: 1749286474026035398}
-  - component: {fileID: 8608950097194980941}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -201,6 +200,7 @@ MonoBehaviour:
   stabilityForce: 6
   airRotationSpeed: 360
   maxAirRotationSpeed: 250
+  helmetShieldPrefab: {fileID: 5857313124304621287, guid: 2e3f4d938db26bc468ac7a71507f7fbb, type: 3}
 --- !u!95 &3169936405850992467
 Animator:
   serializedVersion: 7
@@ -382,19 +382,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.106456, y: 2.5988348}
   m_EdgeRadius: 0
---- !u!114 &8608950097194980941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3009825705125391194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9988586698dfc54480fc4c60847c801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  helmetShieldPrefab: {fileID: 0}
 --- !u!1 &6647075361753174623
 GameObject:
   m_ObjectHideFlags: 0
