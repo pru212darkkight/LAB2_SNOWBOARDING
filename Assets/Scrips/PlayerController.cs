@@ -4,27 +4,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // --- CÁC THÔNG SỐ CƠ BẢN ---
-    [SerializeField] private float maxSpeed = 20f;         // Tốc độ tối đa không thể vượt quá
-    [SerializeField] private float jumpForce = 10f;        // Lực nhảy - càng lớn nhảy càng cao
-    [SerializeField] private float torqueAmount = 1.2f;    // Độ nhạy khi xoay - càng lớn xoay càng nhanh
+    [SerializeField] private float maxSpeed = 50f;         // Tốc độ tối đa không thể vượt quá
+    [SerializeField] private float jumpForce = 30f;        // Lực nhảy - càng lớn nhảy càng cao
+    [SerializeField] private float torqueAmount = 8f;    // Độ nhạy khi xoay - càng lớn xoay càng nhanh
     [SerializeField] private LayerMask groundLayer;        // Layer của mặt đất/tuyết
     [SerializeField] private Transform groundCheck;        // Điểm kiểm tra va chạm với đất
 
     // --- THÔNG SỐ VẬT LÝ ---
-    [SerializeField] private float decelerationRate = 2f;       // Độ ma sát - càng lớn dừng càng nhanh
+    [SerializeField] private float decelerationRate = 2.2f;       // Độ ma sát - càng lớn dừng càng nhanh
     [SerializeField] private float minSpeedThreshold = 2f;      // Tốc độ tối thiểu để duy trì chuyển động
     [SerializeField] private float gravityMultiplier = 2.2f;    // Hệ số trọng lực - càng lớn càng nặng
-    [SerializeField] private float moveForce = 60f;             // Lực di chuyển khi nhấn A/D - càng lớn di chuyển càng nhanh
+    [SerializeField] private float moveForce = 10f;             // Lực di chuyển khi nhấn A/D - càng lớn di chuyển càng nhanh
 
     // --- HỆ THỐNG CÂN BẰNG ---
-    [SerializeField] private float balanceForce = 3.5f;         // Lực giữ thăng bằng - càng lớn càng khó nghiêng
-    [SerializeField] private float maxBalanceAngle = 35f;       // Góc nghiêng tối đa cho phép
-    [SerializeField] private float balanceSpeed = 10f;          // Tốc độ cân bằng lại - càng lớn càng nhanh
-    [SerializeField] private float stabilityForce = 6f;         // Lực ổn định - giúp không bị lật
+    [SerializeField] private float balanceForce = 3f;         // Lực giữ thăng bằng - càng lớn càng khó nghiêng
+    [SerializeField] private float maxBalanceAngle = 45f;       // Góc nghiêng tối đa cho phép
+    [SerializeField] private float balanceSpeed = 25f;          // Tốc độ cân bằng lại - càng lớn càng nhanh
+    [SerializeField] private float stabilityForce = 3f;         // Lực ổn định - giúp không bị lật
 
     // --- ĐIỀU KHIỂN TRÊN KHÔNG ---
-    [SerializeField] private float airRotationSpeed = 180f;     // Tốc độ xoay cơ bản khi nhấn W/S trên không
-    [SerializeField] private float maxAirRotationSpeed = 250f;  // Tốc độ xoay tối đa trên không
+    [SerializeField] private float airRotationSpeed = 720f;     // Tốc độ xoay cơ bản khi nhấn W/S trên không
+    [SerializeField] private float maxAirRotationSpeed = 500f;  // Tốc độ xoay tối đa trên không
 
     // --- BIẾN PRIVATE ---
     private bool isGrounded;           // Kiểm tra có đang chạm đất không
@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
         // Khối lượng của nhân vật
 
         rb.constraints = RigidbodyConstraints2D.None;  // Không giới hạn chuyển động
-        rb.freezeRotation = false;   
-        
+        rb.freezeRotation = false;
+
         // Cho phép xoay
     }
 
@@ -83,11 +83,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAirRotation()
     {
-        float rotationInput = Input.GetAxis("Vertical"); // W = 1, S = -1
+        float rotationInput = Input.GetAxis("Horizontal"); // D = 1, A = -1
 
         if (Mathf.Abs(rb.angularVelocity) < maxAirRotationSpeed)
         {
-            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime); // Đảo dấu để W = xoay về trước
+            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime); // Đảo dấu để D = xoay về trước
         }
 
         // Giảm xoay dần
@@ -144,44 +144,30 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-
         if (isGrounded)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2f, groundLayer);
             if (hit.collider != null)
             {
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                float slopeDir = -Mathf.Sign(hit.normal.x);
+                float slopeDir = Mathf.Sign(hit.normal.x);
 
-                // Xử lý input A/D
-                if (Mathf.Abs(moveInput) > 0.1f)
+                // Áp dụng lực trượt dựa trên độ dốc
+                if (rb.linearVelocity.magnitude < maxSpeed)
                 {
-                    // Chỉ áp dụng lực nếu chưa đạt tốc độ tối đa
-                    if (rb.linearVelocity.magnitude < maxSpeed)
-                    {
-                        Vector2 moveDir = new Vector2(moveInput, 0);
-                        float speedMultiplier = 1f;
-
-                        if (moveInput * slopeDir > 0)
-                        {
-                            speedMultiplier = 1.5f;
-                        }
-                        else
-                        {
-                            speedMultiplier = 0.7f;
-                        }
-
-                        rb.AddForce(moveDir * moveForce * speedMultiplier);
-                    }
-
-                    // Vẫn cho phép xoay ngay cả khi đạt tốc độ tối đa
-                    float torqueMultiplier = 1f + (slopeAngle / 45f);
-                    rb.AddTorque(-moveInput * torqueAmount * torqueMultiplier);
+                    Vector2 moveDir = new Vector2(slopeDir, 0);
+                    float speedMultiplier = 1f + (slopeAngle / 45f); // Tăng tốc độ dựa trên độ dốc
+                    rb.AddForce(moveDir * moveForce * speedMultiplier);
                 }
-                else
+
+                // Áp dụng xoay dựa trên độ dốc
+                float torqueMultiplier = 1f + (slopeAngle / 45f);
+                rb.AddTorque(-slopeDir * torqueAmount * torqueMultiplier);
+
+                // Áp dụng giảm tốc khi độ dốc nhỏ
+                if (slopeAngle < 5f)
                 {
-                    rb.AddForce(-rb.linearVelocity.normalized * decelerationRate * 0.5f);
+                    rb.AddForce(-rb.linearVelocity.normalized * decelerationRate);
                 }
             }
         }
@@ -190,9 +176,10 @@ public class PlayerController : MonoBehaviour
             HandleAirRotation();
         }
 
-        if (moveInput > 0)
+        // Cập nhật hướng nhìn dựa trên hướng di chuyển
+        if (rb.linearVelocity.x > 0)
             transform.localScale = new Vector3(0.4f, 0.45f, 1);
-        else if (moveInput < 0)
+        else if (rb.linearVelocity.x < 0)
             transform.localScale = new Vector3(-0.4f, 0.45f, 1);
     }
 
