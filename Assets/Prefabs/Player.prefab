@@ -200,6 +200,7 @@ MonoBehaviour:
   stabilityForce: 6
   airRotationSpeed: 360
   maxAirRotationSpeed: 250
+  helmetShieldPrefab: {fileID: 5857313124304621287, guid: 2e3f4d938db26bc468ac7a71507f7fbb, type: 3}
 --- !u!95 &3169936405850992467
 Animator:
   serializedVersion: 7
