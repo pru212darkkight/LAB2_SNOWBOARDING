@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: a321276fd0a60b249bace515f8adfdbe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5950268412986266668
+    second: modern-winter-sport-equipment-with-flat-design_0
+  - first:
+      213: 1521269056723172816
+    second: modern-winter-sport-equipment-with-flat-design_1
+  - first:
+      213: 3665091619349110983
+    second: modern-winter-sport-equipment-with-flat-design_2
+  - first:
+      213: -1152617856179462946
+    second: modern-winter-sport-equipment-with-flat-design_3
+  - first:
+      213: 1440750989450225886
+    second: modern-winter-sport-equipment-with-flat-design_4
+  - first:
+      213: 5049295360413045555
+    second: modern-winter-sport-equipment-with-flat-design_5
+  - first:
+      213: -5505683003985161085
+    second: modern-winter-sport-equipment-with-flat-design_6
+  - first:
+      213: 2966141015665172780
+    second: modern-winter-sport-equipment-with-flat-design_7
+  - first:
+      213: -8623724983766618933
+    second: modern-winter-sport-equipment-with-flat-design_8
+  - first:
+      213: 4682203406995514223
+    second: modern-winter-sport-equipment-with-flat-design_9
+  - first:
+      213: -4058966438108585060
+    second: modern-winter-sport-equipment-with-flat-design_10
+  - first:
+      213: -17266787042016602
+    second: modern-winter-sport-equipment-with-flat-design_11
+  - first:
+      213: -7925140721109380117
+    second: modern-winter-sport-equipment-with-flat-design_12
+  - first:
+      213: -1981958745019074141
+    second: modern-winter-sport-equipment-with-flat-design_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_0
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 792
+        width: 263
+        height: 1008
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbe9bd77666c6da0800000000000000
+      internalID: -5950268412986266668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_1
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1202
+        width: 376
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd37c5a522ac1510800000000000000
+      internalID: 1521269056723172816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_2
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1445
+        width: 365
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0a098c8650dd230800000000000000
+      internalID: 3665091619349110983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_3
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 680
+        width: 165
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc96a8aa241100f0800000000000000
+      internalID: -1152617856179462946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_4
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 617
+        width: 163
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed829f734639ef310800000000000000
+      internalID: 1440750989450225886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_5
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 1058
+        width: 305
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3339273c063b21640800000000000000
+      internalID: 5049295360413045555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_6
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 757
+        width: 915
+        height: 299
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3841f8d6a72e793b0800000000000000
+      internalID: -5505683003985161085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 486
+        width: 1269
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c216078d989d92920800000000000000
+      internalID: 2966141015665172780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_8
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 468
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccede551df525880800000000000000
+      internalID: -8623724983766618933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_9
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 311
+        width: 1269
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f636718f0378af040800000000000000
+      internalID: 4682203406995514223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_10
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 301
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c932e45a787aba7c0800000000000000
+      internalID: -4058966438108585060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modern-winter-sport-equipment-with-flat-design_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 280
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2c2fbd2f7a2cff0800000000000000
+      internalID: -17266787042016602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c63091f70d298a34987bc9c59b5359f5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      modern-winter-sport-equipment-with-flat-design_0: -5950268412986266668
+      modern-winter-sport-equipment-with-flat-design_1: 1521269056723172816
+      modern-winter-sport-equipment-with-flat-design_10: -4058966438108585060
+      modern-winter-sport-equipment-with-flat-design_11: -17266787042016602
+      modern-winter-sport-equipment-with-flat-design_2: 3665091619349110983
+      modern-winter-sport-equipment-with-flat-design_3: -1152617856179462946
+      modern-winter-sport-equipment-with-flat-design_4: 1440750989450225886
+      modern-winter-sport-equipment-with-flat-design_5: 5049295360413045555
+      modern-winter-sport-equipment-with-flat-design_6: -5505683003985161085
+      modern-winter-sport-equipment-with-flat-design_7: 2966141015665172780
+      modern-winter-sport-equipment-with-flat-design_8: -8623724983766618933
+      modern-winter-sport-equipment-with-flat-design_9: 4682203406995514223
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

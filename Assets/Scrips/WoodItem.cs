@@ -32,9 +32,18 @@ public class WoodItem : MonoBehaviour
             }
 
             PlayerController player = other.GetComponent<PlayerController>();
+
             if (player != null)
             {
-                player.ReduceSpeedTemporarily(0.5f, 3f);
+                if (player.IsInvulnerable()) // Kiểm tra có khiên không
+                {
+                    player.ForceDeactivateShield(); // Huỷ khiên
+                    return;                     // Không làm chậm nữa
+                }
+                else
+                {
+                    player.ReduceSpeedTemporarily(0.5f, 3f);
+                }
             }
         }
     }
