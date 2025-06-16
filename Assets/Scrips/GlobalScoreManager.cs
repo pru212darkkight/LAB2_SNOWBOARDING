@@ -1,5 +1,4 @@
-﻿using Assets.Scrips;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +7,7 @@ public class GlobalScoreManager : MonoBehaviour
 {
     public static GlobalScoreManager Instance { get; private set; }
 
-    private Dictionary<string, List<HighScoreEntry>> allScores = new();
-
+    private Dictionary<string, float> highScoresPerLevel = new();
     private string SavePath => Path.Combine(Application.persistentDataPath, "highscores.json");
 
     private void Awake()
@@ -26,29 +24,22 @@ public class GlobalScoreManager : MonoBehaviour
         }
     }
 
-    public void SaveScore(string playerName, float score)
+    public void SaveScore(float newScore)
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        string scene = SceneManager.GetActiveScene().name;
 
-        if (!allScores.ContainsKey(sceneName))
-            allScores[sceneName] = new List<HighScoreEntry>();
-
-        allScores[sceneName].Add(new HighScoreEntry(playerName, score));
-
-        allScores[sceneName].Sort((a, b) => b.score.CompareTo(a.score));
-
-        if (allScores[sceneName].Count > 5)
-            allScores[sceneName].RemoveRange(5, allScores[sceneName].Count - 5);
-
-        SaveScoresToFile();
+        if (!highScoresPerLevel.ContainsKey(scene) || newScore > highScoresPerLevel[scene])
+        {
+            highScoresPerLevel[scene] = newScore;
+            SaveScoresToFile();
+            Debug.Log($"Đang thử lưu điểm {newScore} ở scene {scene}");
+            Debug.Log("Saving to: " + SavePath);
+        }
     }
 
-    public List<HighScoreEntry> GetTopScores(string sceneName)
+    public float GetScore(string scene)
     {
-        if (allScores.ContainsKey(sceneName))
-            return allScores[sceneName];
-
-        return new List<HighScoreEntry>();
+        return highScoresPerLevel.TryGetValue(scene, out float score) ? score : 0f;
     }
 
     private void LoadScoresFromFile()
@@ -56,42 +47,42 @@ public class GlobalScoreManager : MonoBehaviour
         if (File.Exists(SavePath))
         {
             string json = File.ReadAllText(SavePath);
-            allScores = JsonUtility.FromJson<ScoreDataWrapper>(json).ToDictionary();
+            ScoreWrapper wrapper = JsonUtility.FromJson<ScoreWrapper>(json);
+            highScoresPerLevel = wrapper?.ToDictionary() ?? new();
         }
     }
 
     private void SaveScoresToFile()
     {
-        ScoreDataWrapper wrapper = new(allScores);
+        ScoreWrapper wrapper = new(highScoresPerLevel);
         string json = JsonUtility.ToJson(wrapper, true);
         File.WriteAllText(SavePath, json);
-        Debug.Log("Saved JSON to: " + SavePath);
     }
 
     [System.Serializable]
-    private class ScoreDataWrapper
+    private class ScoreWrapper
     {
-        public List<SceneScoreData> scenes = new();
+        public List<LevelScore> scores = new();
 
-        public ScoreDataWrapper(Dictionary<string, List<HighScoreEntry>> dict)
+        public ScoreWrapper(Dictionary<string, float> dict)
         {
             foreach (var kvp in dict)
-                scenes.Add(new SceneScoreData { sceneName = kvp.Key, scores = kvp.Value });
+                scores.Add(new LevelScore { levelName = kvp.Key, score = kvp.Value });
         }
 
-        public Dictionary<string, List<HighScoreEntry>> ToDictionary()
+        public Dictionary<string, float> ToDictionary()
         {
-            Dictionary<string, List<HighScoreEntry>> dict = new();
-            foreach (var item in scenes)
-                dict[item.sceneName] = item.scores;
+            Dictionary<string, float> dict = new();
+            foreach (var s in scores)
+                dict[s.levelName] = s.score;
             return dict;
         }
     }
 
     [System.Serializable]
-    private class SceneScoreData
+    private class LevelScore
     {
-        public string sceneName;
-        public List<HighScoreEntry> scores;
+        public string levelName;
+        public float score;
     }
 }
