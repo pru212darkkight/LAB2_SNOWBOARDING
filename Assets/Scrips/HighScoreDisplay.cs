@@ -1,25 +1,23 @@
-﻿using Assets.Scrips;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class HighScoreDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] scoreTexts;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    void Start()
+    private void Start()
     {
-        string currentScene = PlayerPrefs.GetString("LastPlayedScene", SceneManager.GetActiveScene().name);
+        string currentScene = SceneManager.GetActiveScene().name;
 
-        List<HighScoreEntry> scores = GlobalScoreManager.Instance.GetTopScores(currentScene);
+        Debug.Log($"Current Scene: {currentScene}");
 
-        for (int i = 0; i < scoreTexts.Length; i++)
-        {
-            if (i < scores.Count)
-                scoreTexts[i].text = $"{i + 1}. {scores[i].playerName} - {Mathf.FloorToInt(scores[i].score)}";
-            else
-                scoreTexts[i].text = $"{i + 1}. ---";
-        }
+        float highScore = GlobalScoreManager.Instance.GetScore(currentScene);
+        float currentScore = ScoreManager.Instance.GetScore(); 
+
+        Debug.Log($"High Score for {currentScene}: {highScore}");
+        Debug.Log($"Current Score: {currentScore}");
+
+        scoreText.text = $"High Score: {Mathf.FloorToInt(highScore)}\nCurrent Score: {Mathf.FloorToInt(currentScore)}";
     }
 }
