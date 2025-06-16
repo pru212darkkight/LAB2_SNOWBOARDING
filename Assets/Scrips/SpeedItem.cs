@@ -2,7 +2,7 @@
 
 public class SpeedItem : MonoBehaviour
 {
-    [SerializeField] private float speedMultiplier = 1.5f;  
+    [SerializeField] private float speedMultiplier = 60f;  
     [SerializeField] private float boostDuration = 3f;      
 
     private void OnTriggerEnter2D(Collider2D other)
