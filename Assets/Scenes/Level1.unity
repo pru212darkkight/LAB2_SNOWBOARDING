@@ -3359,7 +3359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: -20.530212}
+  m_AnchoredPosition: {x: -0.00024414062, y: -20.530273}
   m_SizeDelta: {x: -877.73, y: -329.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472656418
@@ -3731,7 +3731,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.1228, y: -36.37, z: -10}
+  m_LocalPosition: {x: 5.115556, y: -2.0799994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9596,7 +9596,7 @@ Transform:
   m_GameObject: {fileID: 1226445071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.1228, y: -36.37, z: -10}
+  m_LocalPosition: {x: 5.115556, y: -2.0799994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10584,7 +10584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00030517578, y: -20.53003}
+  m_AnchoredPosition: {x: -0.00024414062, y: -20.53003}
   m_SizeDelta: {x: -765.53, y: -254.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305895391
@@ -13202,6 +13202,14 @@ PrefabInstance:
     - target: {fileID: 1361045198376569847, guid: 5df839ed22dd3fa4a8e8b272983ec3dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720436389606765471, guid: 5df839ed22dd3fa4a8e8b272983ec3dd, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720436389606765471, guid: 5df839ed22dd3fa4a8e8b272983ec3dd, type: 3}
+      propertyPath: m_MinParticleSize
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4426835999304127401, guid: 5df839ed22dd3fa4a8e8b272983ec3dd, type: 3}
       propertyPath: m_Name
@@ -17076,7 +17084,6 @@ Transform:
   - {fileID: 1735635281}
   - {fileID: 674274078}
   - {fileID: 936238813}
-  - {fileID: 814993841}
   - {fileID: 1947689833}
   - {fileID: 1286240522}
   m_Father: {fileID: 1666413289}
