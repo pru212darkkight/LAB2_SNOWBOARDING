@@ -17,6 +17,16 @@ public class CrashDetector : MonoBehaviour
                 Debug.LogError("GameManager.Instance is null!");
                 return;
             }
+            if (GlobalScoreManager.Instance == null)
+            {
+                Debug.LogError("GlobalScoreManager.Instance is null!");
+            }
+            else
+            {
+                float currentScore = ScoreManager.Instance.GetScore();
+                Debug.Log($"Saving score: {currentScore}");
+                GlobalScoreManager.Instance.SaveScore(currentScore);
+            }
             GameManager.Instance.ShowGameOverWithDelay(loadDelay);
         }
     }
