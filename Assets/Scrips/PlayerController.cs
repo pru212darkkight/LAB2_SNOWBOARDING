@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
     {
         originalMoveForce = moveForce;
-        moveForce *= multiplier;
+        moveForce += multiplier;
 
         yield return new WaitForSeconds(duration);
 
