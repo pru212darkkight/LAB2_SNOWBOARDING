@@ -62,14 +62,17 @@ public class PlayerController : MonoBehaviour
         UpdateAnimation();
     }
 
+
+
+    private bool isSpeedBoosting = false;
+
     void FixedUpdate()
     {
         // Luôn kiểm tra và giới hạn tốc độ trước
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (!isSpeedBoosting && rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
-
         if (isGrounded)
         {
             ApplyBalance();
@@ -226,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
         slowCoroutine = StartCoroutine(SlowDownCoroutine(factor, duration));
     }
+    
 
     private IEnumerator SlowDownCoroutine(float factor, float duration)
     {
@@ -252,24 +256,25 @@ public class PlayerController : MonoBehaviour
     private Coroutine boostCoroutine;
     private float originalMoveForce;
 
-    public void BoostSpeedTemporarily(float multiplier, float duration)
+    public void BoostSpeedTemporarily(float forceIncrease, float duration)
     {
-
-
         if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
 
-        boostCoroutine = StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+        boostCoroutine = StartCoroutine(SpeedBoostCoroutine(forceIncrease, duration));
     }
 
-    private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    private IEnumerator SpeedBoostCoroutine(float forceIncrease, float duration)
     {
         originalMoveForce = moveForce;
-        moveForce += multiplier;
+        isSpeedBoosting = true; // Bỏ giới hạn maxSpeed
+
+        moveForce += forceIncrease;
 
         yield return new WaitForSeconds(duration);
 
-        moveForce = originalMoveForce;
+        moveForce = maxSpeed;
+        isSpeedBoosting = false; // Giới hạn lại tốc độ
     }
 
     //

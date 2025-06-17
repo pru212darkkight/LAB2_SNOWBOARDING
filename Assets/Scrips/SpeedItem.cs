@@ -2,19 +2,18 @@
 
 public class SpeedItem : MonoBehaviour
 {
-    [SerializeField] private float speedMultiplier = 60f;  
-    [SerializeField] private float boostDuration = 4f;      
+    [SerializeField] private float speedBoostAmount = 20f;   // Lượng lực boost thêm
+    [SerializeField] private float boostDuration = 3f;       // Tổng thời gian hiệu lực (3s tăng dần + 3s giữ nguyên)
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null)
         {
-            PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.BoostSpeedTemporarily(speedMultiplier, boostDuration);
-                Destroy(gameObject); 
-            }
+            player.BoostSpeedTemporarily(speedBoostAmount, boostDuration);
+            Destroy(gameObject); // Xoá item sau khi ăn
         }
     }
 }
