@@ -59,8 +59,6 @@ public class ScoreManager : MonoBehaviour
         {
             scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
         }
-
-        Debug.Log("Score: " + Mathf.FloorToInt(score));
     }
 
     public void ResetScore()
@@ -74,4 +72,11 @@ public class ScoreManager : MonoBehaviour
     {
         return score;
     }
+
+    public void AddScore(float amount)
+    {
+        score += amount;
+        UpdateScoreText();
+    }
+
 }
