@@ -72,4 +72,11 @@ public class ScoreManager : MonoBehaviour
     {
         return score;
     }
+
+    public void AddScore(float amount)
+    {
+        score += amount;
+        UpdateScoreText();
+    }
+
 }

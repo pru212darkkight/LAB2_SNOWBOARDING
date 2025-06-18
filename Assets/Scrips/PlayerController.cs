@@ -62,13 +62,17 @@ public class PlayerController : MonoBehaviour
         UpdateAnimation();
     }
 
+
+
     void FixedUpdate()
     {
         // Luôn kiểm tra và giới hạn tốc độ trước
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (!isSpeedBoosting && !isDeceleratingAfterBoost)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            if (rb.linearVelocity.magnitude > maxSpeed)
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
+
 
         if (isGrounded)
         {
@@ -83,11 +87,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAirRotation()
     {
-        float rotationInput = Input.GetAxis("Horizontal"); // D = 1, A = -1
+        float rotationInput = Input.GetAxis("Horizontal"); 
 
         if (Mathf.Abs(rb.angularVelocity) < maxAirRotationSpeed)
         {
-            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime); // Đảo dấu để D = xoay về trước
+            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime); 
         }
 
         // Giảm xoay dần
@@ -190,7 +194,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
     }
 
     private void UpdateAnimation()
@@ -227,6 +231,7 @@ public class PlayerController : MonoBehaviour
         slowCoroutine = StartCoroutine(SlowDownCoroutine(factor, duration));
     }
 
+
     private IEnumerator SlowDownCoroutine(float factor, float duration)
     {
         rb.linearVelocity *= factor;
@@ -248,29 +253,90 @@ public class PlayerController : MonoBehaviour
 
 
     /// tăng tốc
-
+    // Biến hỗ trợ tăng tốc
     private Coroutine boostCoroutine;
-    private float originalMoveForce;
+    private float originalDamping = 0f;
+    private Vector2 originalVelocityBeforeBoost;
+    private bool isSpeedBoosting = false;
+    private bool isDeceleratingAfterBoost = false;
+    [SerializeField] private float decelerateDuration = 1.5f; // Thời gian giảm dần về tốc độ ban đầu
 
-    public void BoostSpeedTemporarily(float multiplier, float duration)
+    // Gọi từ item tăng tốc
+    public void BoostSpeedTemporarily(float boostMultiplier, float duration)
     {
-
-
         if (boostCoroutine != null)
             StopCoroutine(boostCoroutine);
 
-        boostCoroutine = StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+        boostCoroutine = StartCoroutine(SpeedBoostCoroutine(boostMultiplier, duration));
     }
 
-    private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    private IEnumerator SpeedBoostCoroutine(float boostMultiplier, float duration)
     {
-        originalMoveForce = moveForce;
-        moveForce *= multiplier;
+        if (rb.linearVelocity.magnitude < 0.1f)
+            yield break; // Không boost nếu nhân vật đang đứng yên
 
-        yield return new WaitForSeconds(duration);
+        isSpeedBoosting = true;
 
-        moveForce = originalMoveForce;
+        // Lưu lại trạng thái ban đầu
+        originalVelocityBeforeBoost = rb.linearVelocity;
+        originalDamping = rb.linearDamping;
+
+        float boostX = rb.linearVelocity.x * boostMultiplier;
+        float boostY = rb.linearVelocity.y;
+        Vector2 targetVelocity = new Vector2(boostX, boostY);
+
+        // Clamp không vượt quá maxSpeed
+        if (targetVelocity.magnitude > maxSpeed)
+            targetVelocity = targetVelocity.normalized * maxSpeed;
+
+        float elapsed = 0f;
+
+        // Giảm damping để tăng tốc mượt mà
+        rb.linearDamping = 0.1f;
+
+        // Tăng tốc dần (Ramp-up)
+        while (elapsed < duration)
+        {
+            elapsed += Time.fixedDeltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            rb.linearVelocity = Vector2.Lerp(originalVelocityBeforeBoost, targetVelocity, t);
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        // Trả lại damping gốc và bắt đầu giảm tốc
+        rb.linearDamping = originalDamping;
+        yield return StartCoroutine(GradualDecelerateToOriginal());
+
+        isSpeedBoosting = false;
     }
+
+    private IEnumerator GradualDecelerateToOriginal()
+    {
+        isDeceleratingAfterBoost = true;
+        float elapsed = 0f;
+        Vector2 startVelocity = rb.linearVelocity;
+        Vector2 targetVelocity = originalVelocityBeforeBoost;
+
+        while (elapsed < decelerateDuration)
+        {
+            elapsed += Time.fixedDeltaTime;
+            float t = elapsed / decelerateDuration;
+
+            // Easing mượt hơn (ease-out)
+            float easeOutT = 1f - Mathf.Pow(1f - t, 2f);
+            rb.linearVelocity = Vector2.Lerp(startVelocity, targetVelocity, easeOutT);
+
+            if ((rb.linearVelocity - targetVelocity).magnitude < 0.05f)
+                break;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        rb.linearVelocity = targetVelocity;
+        isDeceleratingAfterBoost = false;
+    }
+
 
     //
     public void ActivateShield(float duration)
@@ -375,3 +441,4 @@ public class PlayerController : MonoBehaviour
         ReactivateAllStoneColliders();
     }
 }
+
