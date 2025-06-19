@@ -2349,8 +2349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000083631, y: -60.6}
-  m_SizeDelta: {x: 420.98, y: 121.2}
+  m_AnchoredPosition: {x: 0.0000076293945, y: -60.6}
+  m_SizeDelta: {x: 521.61, y: 121.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &417742401
 GameObject:
@@ -10621,13 +10621,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1389385820}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16440,19 +16440,19 @@ PrefabInstance:
     - target: {fileID: 3828791588849301829, guid: 46b148374ab3baf4da624a76c3a2b1e5, type: 3}
       propertyPath: star0Sprite
       value: 
-      objectReference: {fileID: 6504763747683324272, guid: 75773954fa4bebf41908b4c38570be5a, type: 3}
+      objectReference: {fileID: 1588463645, guid: f74bde478518d4e42af069720da98525, type: 3}
     - target: {fileID: 3828791588849301829, guid: 46b148374ab3baf4da624a76c3a2b1e5, type: 3}
       propertyPath: star1Sprite
       value: 
-      objectReference: {fileID: -3497892727927865473, guid: 75773954fa4bebf41908b4c38570be5a, type: 3}
+      objectReference: {fileID: 507743023, guid: f74bde478518d4e42af069720da98525, type: 3}
     - target: {fileID: 3828791588849301829, guid: 46b148374ab3baf4da624a76c3a2b1e5, type: 3}
       propertyPath: star2Sprite
       value: 
-      objectReference: {fileID: 3999761062471549324, guid: 75773954fa4bebf41908b4c38570be5a, type: 3}
+      objectReference: {fileID: 419433742, guid: f74bde478518d4e42af069720da98525, type: 3}
     - target: {fileID: 3828791588849301829, guid: 46b148374ab3baf4da624a76c3a2b1e5, type: 3}
       propertyPath: star3Sprite
       value: 
-      objectReference: {fileID: 4815476061570213978, guid: 75773954fa4bebf41908b4c38570be5a, type: 3}
+      objectReference: {fileID: -1807123593, guid: f74bde478518d4e42af069720da98525, type: 3}
     - target: {fileID: 3828791588849301829, guid: 46b148374ab3baf4da624a76c3a2b1e5, type: 3}
       propertyPath: winStarImage
       value: 
