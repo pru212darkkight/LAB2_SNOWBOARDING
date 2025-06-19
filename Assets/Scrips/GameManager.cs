@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite star1Sprite;
     [SerializeField] private Sprite star2Sprite;
     [SerializeField] private Sprite star3Sprite;
-
 
     private bool isPaused = false;
     private bool isGameOver = false;
@@ -118,6 +117,13 @@ public class GameManager : MonoBehaviour
                     // Store current velocities when pausing
                     savedVelocity = rb.linearVelocity;
                     savedAngularVelocity = rb.angularVelocity;
+                    // Thông báo cho player về việc pause
+                    player.OnGamePaused();
+                }
+                else
+                {
+                    // Thông báo cho player về việc resume
+                    player.OnGameResumed();
                 }
             }
         }
@@ -143,10 +149,17 @@ public class GameManager : MonoBehaviour
             settingsPanel.SetActive(false);
         }
 
+        // Unpause the game first
+        isPaused = false;
+        Time.timeScale = 1f;
+
         // Find and reset player's physics
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null)
         {
+            // Thông báo cho player về việc resume
+            player.OnGameResumed();
+
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -155,10 +168,6 @@ public class GameManager : MonoBehaviour
                 rb.angularVelocity = savedAngularVelocity;
             }
         }
-
-        // Unpause the game
-        isPaused = false;
-        Time.timeScale = 1f;
     }
 
     public void ExitToMenu()
@@ -234,6 +243,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShowGameOverCoroutine(float delay)
     {
+
         yield return new WaitForSecondsRealtime(delay);
         Debug.Log("ShowGameOver called");
         if (gameOverPanel != null)
@@ -260,13 +270,19 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowWinPanelCoroutine(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
+
         if (winPanel != null)
         {
             isLevelComplete = true;
             winPanel.SetActive(true);
+
+            // ✅ Lưu trạng thái hoàn thành level vào JSON
+            GlobalScoreManager.Instance.MarkLevelCompleted();
+
             Time.timeScale = 0f;
             Debug.Log("Level Complete! Win Panel activated");
         }
+
         string currentScene = SceneManager.GetActiveScene().name;
         int stars = LevelCompletionChecker.GetStarCount(currentScene);
         if (winStarImage != null)
@@ -279,8 +295,8 @@ public class GameManager : MonoBehaviour
                 default: winStarImage.sprite = star0Sprite; break;
             }
         }
-
     }
+
 
     public void NextLevel()
     {

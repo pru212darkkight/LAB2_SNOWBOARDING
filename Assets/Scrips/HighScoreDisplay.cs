@@ -13,7 +13,7 @@ public class HighScoreDisplay : MonoBehaviour
         Debug.Log($"Current Scene: {currentScene}");
 
         float highScore = GlobalScoreManager.Instance.GetScore(currentScene);
-        float currentScore = ScoreManager.Instance.GetScore();
+        float currentScore = ScoreManager.Instance.GetScore(); 
 
         Debug.Log($"High Score for {currentScene}: {highScore}");
         Debug.Log($"Current Score: {currentScore}");

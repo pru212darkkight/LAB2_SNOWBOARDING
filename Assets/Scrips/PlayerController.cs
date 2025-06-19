@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private GameObject helmetShieldInstance;
     private Animator shieldAnim;
     private bool isShieldActive = false;
+    private bool isPaused = false;
 
     private void Awake()
     {
@@ -57,6 +58,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Kiểm tra nếu game bị pause thì không xử lý input
+        if (Time.timeScale == 0f)
+        {
+            isPaused = true;
+            return;
+        }
+
+        if (isPaused && Time.timeScale > 0f)
+        {
+            // Game vừa được resume, reset isPaused
+            isPaused = false;
+        }
+
         HandleMovement();
         HandleJump();
         UpdateAnimation();
@@ -66,6 +80,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Không xử lý physics khi game bị pause
+        if (Time.timeScale == 0f)
+            return;
+
         // Luôn kiểm tra và giới hạn tốc độ trước
         if (!isSpeedBoosting && !isDeceleratingAfterBoost)
         {
@@ -87,11 +105,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAirRotation()
     {
-        float rotationInput = Input.GetAxis("Horizontal"); 
+        float rotationInput = Input.GetAxis("Horizontal");
 
         if (Mathf.Abs(rb.angularVelocity) < maxAirRotationSpeed)
         {
-            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime); 
+            rb.AddTorque(-rotationInput * airRotationSpeed * Time.fixedDeltaTime);
         }
 
         // Giảm xoay dần
@@ -194,7 +212,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.6f, groundLayer);
     }
 
     private void UpdateAnimation()
@@ -294,14 +312,14 @@ public class PlayerController : MonoBehaviour
         // Giảm damping để tăng tốc mượt mà
         rb.linearDamping = 0.1f;
 
-        // Tăng tốc dần (Ramp-up)
+        // Tăng tốc dần (Ramp-up) - Sử dụng deltaTime thay vì fixedDeltaTime
         while (elapsed < duration)
         {
-            elapsed += Time.fixedDeltaTime;
+            elapsed += Time.deltaTime; // Sử dụng scaled time
             float t = Mathf.Clamp01(elapsed / duration);
             rb.linearVelocity = Vector2.Lerp(originalVelocityBeforeBoost, targetVelocity, t);
 
-            yield return new WaitForFixedUpdate();
+            yield return null; // Chờ frame tiếp theo thay vì FixedUpdate
         }
 
         // Trả lại damping gốc và bắt đầu giảm tốc
@@ -320,7 +338,7 @@ public class PlayerController : MonoBehaviour
 
         while (elapsed < decelerateDuration)
         {
-            elapsed += Time.fixedDeltaTime;
+            elapsed += Time.deltaTime; // Sử dụng scaled time
             float t = elapsed / decelerateDuration;
 
             // Easing mượt hơn (ease-out)
@@ -330,7 +348,7 @@ public class PlayerController : MonoBehaviour
             if ((rb.linearVelocity - targetVelocity).magnitude < 0.05f)
                 break;
 
-            yield return new WaitForFixedUpdate();
+            yield return null; // Chờ frame tiếp theo thay vì FixedUpdate
         }
 
         rb.linearVelocity = targetVelocity;
@@ -439,6 +457,17 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f); // để player rời khỏi vùng va chạm
         ReactivateAllStoneColliders();
+    }
+
+    // Hàm public để GameManager có thể gọi khi pause/resume
+    public void OnGamePaused()
+    {
+        isPaused = true;
+    }
+
+    public void OnGameResumed()
+    {
+        isPaused = false;
     }
 }
 
