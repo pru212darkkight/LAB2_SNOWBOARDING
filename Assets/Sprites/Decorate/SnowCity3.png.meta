@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 75773954fa4bebf41908b4c38570be5a
+guid: 376b4c700b34d4045aa0a7410b2da904
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4815476061570213978
-    second: star_0
+      213: 7328025655771286188
+    second: SnowCity3_0
   - first:
-      213: 3999761062471549324
-    second: star_1
+      213: -146071712478994842
+    second: SnowCity3_1
   - first:
-      213: -3497892727927865473
-    second: star_2
+      213: -5574384406754686591
+    second: SnowCity3_2
   - first:
-      213: 6504763747683324272
-    second: star_3
+      213: -113685059192196873
+    second: SnowCity3_3
   - first:
-      213: -4570688628630608616
-    second: star_4
+      213: 1038317499897667390
+    second: SnowCity3_4
+  - first:
+      213: -3511750473109302597
+    second: SnowCity3_5
+  - first:
+      213: 3060490330399146479
+    second: SnowCity3_6
+  - first:
+      213: -5348164949213881387
+    second: SnowCity3_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -109,7 +118,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -122,7 +131,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -138,13 +147,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: star_0
+      name: SnowCity3_0
       rect:
         serializedVersion: 2
-        x: 116
-        y: 370
-        width: 281
-        height: 103
+        x: 420
+        y: 241
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a582a4ae6f104d240800000000000000
-      internalID: 4815476061570213978
+      spriteID: caa4235228062b560800000000000000
+      internalID: 7328025655771286188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_1
+      name: SnowCity3_1
       rect:
         serializedVersion: 2
-        x: 116
-        y: 259
-        width: 281
-        height: 101
+        x: 808
+        y: 225
+        width: 18
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c814e03ae71028730800000000000000
-      internalID: 3999761062471549324
+      spriteID: 66ed4f92d8c09fdf0800000000000000
+      internalID: -146071712478994842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_2
+      name: SnowCity3_2
       rect:
         serializedVersion: 2
-        x: 116
-        y: 148
-        width: 281
-        height: 101
+        x: 394
+        y: 210
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7fff69b81df47fc0800000000000000
-      internalID: -3497892727927865473
+      spriteID: 18909e99aeec3a2b0800000000000000
+      internalID: -5574384406754686591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_3
+      name: SnowCity3_3
       rect:
         serializedVersion: 2
-        x: 116
-        y: 36
-        width: 281
-        height: 101
+        x: 447
+        y: 213
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 071d0803a20954a50800000000000000
-      internalID: 6504763747683324272
+      spriteID: 7f0749e7a0c1c6ef0800000000000000
+      internalID: -113685059192196873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_4
+      name: SnowCity3_4
       rect:
         serializedVersion: 2
-        x: 307
-        y: 12
-        width: 19
-        height: 13
+        x: 538
+        y: 212
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,8 +250,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8152e87a8e6a190c0800000000000000
-      internalID: -4570688628630608616
+      spriteID: e3fd871d348d86e00800000000000000
+      internalID: 1038317499897667390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowCity3_5
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 217
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2928efc81c34fc0800000000000000
+      internalID: -3511750473109302597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowCity3_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 845
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe185f58dbb097a20800000000000000
+      internalID: 3060490330399146479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowCity3_7
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 202
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db59e1805087c5b0800000000000000
+      internalID: -5348164949213881387
       vertices: []
       indices: 
       edges: []
@@ -261,11 +336,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      star_0: 4815476061570213978
-      star_1: 3999761062471549324
-      star_2: -3497892727927865473
-      star_3: 6504763747683324272
-      star_4: -4570688628630608616
+      SnowCity3_0: 7328025655771286188
+      SnowCity3_1: -146071712478994842
+      SnowCity3_2: -5574384406754686591
+      SnowCity3_3: -113685059192196873
+      SnowCity3_4: 1038317499897667390
+      SnowCity3_5: -3511750473109302597
+      SnowCity3_6: 3060490330399146479
+      SnowCity3_7: -5348164949213881387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
