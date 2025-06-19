@@ -2,19 +2,17 @@
 
 public class BackgroundFollow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]public Transform cameraTransform; // camera
-    private Vector3 lastCameraPosition;
-
+    [Range(-1f, 1f)]
+    public float scrollspeed = 0.5f;
+    private float offset;
+    private Material mat;
     void Start()
     {
-        lastCameraPosition = cameraTransform.position;
+        mat = GetComponent<Renderer>().material;
     }
-
-    void LateUpdate()
+    void Update()
     {
-        Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
-        transform.position += deltaMovement;
-        lastCameraPosition = cameraTransform.position;
+        offset += (Time.deltaTime * scrollspeed) / 10f;
+        mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }
 }
