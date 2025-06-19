@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite star2Sprite;
     [SerializeField] private Sprite star3Sprite;
 
-
     private bool isPaused = false;
     private bool isGameOver = false;
     private bool isLevelComplete = false;
@@ -267,7 +266,7 @@ public class GameManager : MonoBehaviour
             isLevelComplete = true;
             winPanel.SetActive(true);
 
-            // Lưu trạng thái hoàn thành level vào JSON
+            // ✅ Lưu trạng thái hoàn thành level vào JSON
             GlobalScoreManager.Instance.MarkLevelCompleted();
 
             Time.timeScale = 0f;
