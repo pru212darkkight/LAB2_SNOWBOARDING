@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Net.Mail;
+using System.Collections;
 
 public class GameMenuController : MonoBehaviour
 {
@@ -13,11 +13,11 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private GameObject menuButtonsContainer;
 
     [Header("Option Panel Pages")]
-    [SerializeField] private GameObject page1Container; // Container của trang 1
-    [SerializeField] private GameObject page2Container; // Container của trang 2
-    [SerializeField] private Button nextPageButton; // Nút next page (phải)
-    [SerializeField] private Button prevPageButton; // Nút previous page (trái)
-    private int currentPage = 1; // Trang hiện tại (1 hoặc 2)
+    [SerializeField] private GameObject page1Container;
+    [SerializeField] private GameObject page2Container;
+    [SerializeField] private Button nextPageButton;
+    [SerializeField] private Button prevPageButton;
+    private int currentPage = 1;
 
     [Header("Menu Buttons")]
     [SerializeField] private Button playButton;
@@ -36,69 +36,51 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private string level2SceneName = "Level2";
     [SerializeField] private string level3SceneName = "Level3";
 
+    [Header("Star Display Images (Single)")]
+    [SerializeField] private Image level1StarImageSingle;
+    [SerializeField] private Image level2StarImageSingle;
+    [SerializeField] private Image level3StarImageSingle;
+
+    [SerializeField] private Sprite star0Sprite;
+    [SerializeField] private Sprite star1Sprite;
+    [SerializeField] private Sprite star2Sprite;
+    [SerializeField] private Sprite star3Sprite;
 
     private void Start()
     {
-        // Đăng ký sự kiện click cho các nút menu
-        if (playButton != null)
-            playButton.onClick.AddListener(OnPlayButtonClick);
+        playButton?.onClick.AddListener(OnPlayButtonClick);
+        optionButton?.onClick.AddListener(OnOptionButtonClick);
+        exitButton?.onClick.AddListener(OnExitButtonClick);
+        closeButton?.onClick.AddListener(OnCloseButtonClick);
+        okOptionButton?.onClick.AddListener(OnOkOptionButtonClick);
 
-        if (optionButton != null)
-            optionButton.onClick.AddListener(OnOptionButtonClick);
+        nextPageButton?.onClick.AddListener(OnNextPageClick);
+        prevPageButton?.onClick.AddListener(OnPrevPageClick);
 
-        if (exitButton != null)
-            exitButton.onClick.AddListener(OnExitButtonClick);
+        level1Button?.onClick.AddListener(() => LoadLevel(level1SceneName));
+        level2Button?.onClick.AddListener(() => LoadLevel(level2SceneName));
+        level3Button?.onClick.AddListener(() => LoadLevel(level3SceneName));
 
-        if (closeButton != null)
-            closeButton.onClick.AddListener(OnCloseButtonClick);
+        gameLevelPanel?.SetActive(false);
+        optionPanel?.SetActive(false);
+        menuButtonsContainer?.SetActive(true);
 
-        if (okOptionButton != null)
-            okOptionButton.onClick.AddListener(OnOkOptionButtonClick);
+        InitializeOptionPages();
+        StartCoroutine(DelayedInit());
+    }
 
-        // Đăng ký sự kiện cho các nút chuyển trang
-        if (nextPageButton != null)
-            nextPageButton.onClick.AddListener(OnNextPageClick);
-
-        if (prevPageButton != null)
-            prevPageButton.onClick.AddListener(OnPrevPageClick);
-
-        if (level1Button != null)
-            level1Button.onClick.AddListener(() => LoadLevel(level1SceneName));
-
-        if (level2Button != null)
-            level2Button.onClick.AddListener(() => LoadLevel(level2SceneName));
-
-        if (level3Button != null)
-            level3Button.onClick.AddListener(() => LoadLevel(level3SceneName));
-
-        // Đảm bảo các panel được ẩn khi bắt đầu
-        if (gameLevelPanel != null)
-            gameLevelPanel.SetActive(false);
-
-        if (optionPanel != null)
-        {
-            optionPanel.SetActive(false);
-            InitializeOptionPages();
-        }
-
-        if (menuButtonsContainer != null)
-            menuButtonsContainer.SetActive(true);
+    private IEnumerator DelayedInit()
+    {
+        yield return null;
+        UpdateLevelButtonsState();
     }
 
     private void InitializeOptionPages()
     {
-        if (page1Container != null)
-            page1Container.SetActive(true);
-
-        if (page2Container != null)
-            page2Container.SetActive(false);
-
-        if (prevPageButton != null)
-            prevPageButton.gameObject.SetActive(false);
-
-        if (nextPageButton != null)
-            nextPageButton.gameObject.SetActive(true);
-
+        page1Container?.SetActive(true);
+        page2Container?.SetActive(false);
+        prevPageButton?.gameObject.SetActive(false);
+        nextPageButton?.gameObject.SetActive(true);
         currentPage = 1;
     }
 
@@ -106,17 +88,12 @@ public class GameMenuController : MonoBehaviour
     {
         if (currentPage == 1)
         {
-            if (page1Container != null)
-                page1Container.SetActive(false);
-            if (page2Container != null)
-                page2Container.SetActive(true);
-
+            page1Container?.SetActive(false);
+            page2Container?.SetActive(true);
             currentPage = 2;
 
-            if (prevPageButton != null)
-                prevPageButton.gameObject.SetActive(true);
-            if (nextPageButton != null)
-                nextPageButton.gameObject.SetActive(false);
+            prevPageButton?.gameObject.SetActive(true);
+            nextPageButton?.gameObject.SetActive(false);
         }
     }
 
@@ -124,57 +101,38 @@ public class GameMenuController : MonoBehaviour
     {
         if (currentPage == 2)
         {
-            if (page1Container != null)
-                page1Container.SetActive(true);
-            if (page2Container != null)
-                page2Container.SetActive(false);
-
+            page1Container?.SetActive(true);
+            page2Container?.SetActive(false);
             currentPage = 1;
 
-            if (prevPageButton != null)
-                prevPageButton.gameObject.SetActive(false);
-            if (nextPageButton != null)
-                nextPageButton.gameObject.SetActive(true);
+            prevPageButton?.gameObject.SetActive(false);
+            nextPageButton?.gameObject.SetActive(true);
         }
     }
 
     private void OnPlayButtonClick()
     {
-        // Hiện panel game level
-        if (gameLevelPanel != null)
-            gameLevelPanel.SetActive(true);
+        gameLevelPanel?.SetActive(true);
     }
 
     private void OnOptionButtonClick()
     {
-        if (gameLevelPanel != null)
-            gameLevelPanel.SetActive(false);
-
-        if (optionPanel != null)
-        {
-            optionPanel.SetActive(true);
-            InitializeOptionPages(); // Reset về trang đầu tiên khi mở option
-        }
-
-        if (menuButtonsContainer != null)
-            menuButtonsContainer.SetActive(false);
+        gameLevelPanel?.SetActive(false);
+        optionPanel?.SetActive(true);
+        menuButtonsContainer?.SetActive(false);
+        InitializeOptionPages();
     }
 
     private void OnOkOptionButtonClick()
     {
-        // Ẩn panel option và hiện lại các nút menu
-        if (optionPanel != null)
-            optionPanel.SetActive(false);
-
-        if (menuButtonsContainer != null)
-            menuButtonsContainer.SetActive(true);
+        optionPanel?.SetActive(false);
+        menuButtonsContainer?.SetActive(true);
     }
 
     private void OnExitButtonClick()
     {
-        // Thoát game
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
@@ -182,9 +140,7 @@ public class GameMenuController : MonoBehaviour
 
     private void OnCloseButtonClick()
     {
-        // Chỉ ẩn panel game level
-        if (gameLevelPanel != null)
-            gameLevelPanel.SetActive(false);
+        gameLevelPanel?.SetActive(false);
     }
 
     private void LoadLevel(string sceneName)
@@ -194,37 +150,49 @@ public class GameMenuController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    private void UpdateLevelButtonsState()
+    {
+        level2Button.interactable = LevelCompletionChecker.IsLevelCompleted(level1SceneName);
+        level3Button.interactable = LevelCompletionChecker.IsLevelCompleted(level2SceneName);
+
+        SetStarSprite(level1StarImageSingle, LevelCompletionChecker.GetStarCount(level1SceneName));
+        SetStarSprite(level2StarImageSingle, LevelCompletionChecker.GetStarCount(level2SceneName));
+        SetStarSprite(level3StarImageSingle, LevelCompletionChecker.GetStarCount(level3SceneName));
+    }
+
+    private void SetStarSprite(Image starImage, int starCount)
+    {
+        if (starImage == null) return;
+
+        switch (starCount)
+        {
+            case 1:
+                starImage.sprite = star1Sprite;
+                break;
+            case 2:
+                starImage.sprite = star2Sprite;
+                break;
+            case 3:
+                starImage.sprite = star3Sprite;
+                break;
+            default:
+                starImage.sprite = star0Sprite;
+                break;
+        }
+    }
+
     private void OnDestroy()
     {
-        // Hủy đăng ký sự kiện khi destroy object
-        if (playButton != null)
-            playButton.onClick.RemoveListener(OnPlayButtonClick);
+        playButton?.onClick.RemoveListener(OnPlayButtonClick);
+        optionButton?.onClick.RemoveListener(OnOptionButtonClick);
+        exitButton?.onClick.RemoveListener(OnExitButtonClick);
+        closeButton?.onClick.RemoveListener(OnCloseButtonClick);
+        okOptionButton?.onClick.RemoveListener(OnOkOptionButtonClick);
+        nextPageButton?.onClick.RemoveListener(OnNextPageClick);
+        prevPageButton?.onClick.RemoveListener(OnPrevPageClick);
 
-        if (optionButton != null)
-            optionButton.onClick.RemoveListener(OnOptionButtonClick);
-
-        if (exitButton != null)
-            exitButton.onClick.RemoveListener(OnExitButtonClick);
-
-        if (closeButton != null)
-            closeButton.onClick.RemoveListener(OnCloseButtonClick);
-
-        if (okOptionButton != null)
-            okOptionButton.onClick.RemoveListener(OnOkOptionButtonClick);
-
-        if (nextPageButton != null)
-            nextPageButton.onClick.RemoveListener(OnNextPageClick);
-
-        if (prevPageButton != null)
-            prevPageButton.onClick.RemoveListener(OnPrevPageClick);
-
-        if (level1Button != null)
-            level1Button.onClick.RemoveAllListeners();
-
-        if (level2Button != null)
-            level2Button.onClick.RemoveAllListeners();
-
-        if (level3Button != null)
-            level3Button.onClick.RemoveAllListeners();
+        level1Button?.onClick.RemoveAllListeners();
+        level2Button?.onClick.RemoveAllListeners();
+        level3Button?.onClick.RemoveAllListeners();
     }
 }

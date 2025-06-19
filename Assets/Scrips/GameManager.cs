@@ -20,6 +20,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button settingsCloseButton;
 
+    [Header("Win Star UI")]
+    [SerializeField] private Image winStarImage;
+    [SerializeField] private Sprite star0Sprite;
+    [SerializeField] private Sprite star1Sprite;
+    [SerializeField] private Sprite star2Sprite;
+    [SerializeField] private Sprite star3Sprite;
+
+
     private bool isPaused = false;
     private bool isGameOver = false;
     private bool isLevelComplete = false;
@@ -259,6 +267,19 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             Debug.Log("Level Complete! Win Panel activated");
         }
+        string currentScene = SceneManager.GetActiveScene().name;
+        int stars = LevelCompletionChecker.GetStarCount(currentScene);
+        if (winStarImage != null)
+        {
+            switch (stars)
+            {
+                case 1: winStarImage.sprite = star1Sprite; break;
+                case 2: winStarImage.sprite = star2Sprite; break;
+                case 3: winStarImage.sprite = star3Sprite; break;
+                default: winStarImage.sprite = star0Sprite; break;
+            }
+        }
+
     }
 
     public void NextLevel()
