@@ -8,8 +8,6 @@ public class GlobalScoreManager : MonoBehaviour
     public static GlobalScoreManager Instance { get; private set; }
 
     private Dictionary<string, float> highScoresPerLevel = new();
-    private Dictionary<string, bool> completedLevels = new();
-
     private string SavePath => Path.Combine(Application.persistentDataPath, "highscores.json");
 
     private void Awake()
@@ -44,31 +42,19 @@ public class GlobalScoreManager : MonoBehaviour
         return highScoresPerLevel.TryGetValue(scene, out float score) ? score : 0f;
     }
 
-    public void MarkLevelCompleted()
-    {
-        string scene = SceneManager.GetActiveScene().name;
-        completedLevels[scene] = true;
-        SaveScoresToFile();
-    }
-
-    public bool IsLevelCompleted(string scene)
-    {
-        return completedLevels.TryGetValue(scene, out bool completed) && completed;
-    }
-
     private void LoadScoresFromFile()
     {
         if (File.Exists(SavePath))
         {
             string json = File.ReadAllText(SavePath);
             ScoreWrapper wrapper = JsonUtility.FromJson<ScoreWrapper>(json);
-            highScoresPerLevel = wrapper?.ToDictionary(out completedLevels) ?? new();
+            highScoresPerLevel = wrapper?.ToDictionary() ?? new();
         }
     }
 
     private void SaveScoresToFile()
     {
-        ScoreWrapper wrapper = new ScoreWrapper(highScoresPerLevel, completedLevels);
+        ScoreWrapper wrapper = new(highScoresPerLevel);
         string json = JsonUtility.ToJson(wrapper, true);
         File.WriteAllText(SavePath, json);
     }
@@ -78,29 +64,18 @@ public class GlobalScoreManager : MonoBehaviour
     {
         public List<LevelScore> scores = new();
 
-        public ScoreWrapper(Dictionary<string, float> dict, Dictionary<string, bool> completionDict)
+        public ScoreWrapper(Dictionary<string, float> dict)
         {
             foreach (var kvp in dict)
-            {
-                scores.Add(new LevelScore
-                {
-                    levelName = kvp.Key,
-                    score = kvp.Value,
-                    isCompleted = completionDict.TryGetValue(kvp.Key, out bool val) && val
-                });
-            }
+                scores.Add(new LevelScore { levelName = kvp.Key, score = kvp.Value });
         }
 
-        public Dictionary<string, float> ToDictionary(out Dictionary<string, bool> completionDict)
+        public Dictionary<string, float> ToDictionary()
         {
-            Dictionary<string, float> scoreDict = new();
-            completionDict = new();
+            Dictionary<string, float> dict = new();
             foreach (var s in scores)
-            {
-                scoreDict[s.levelName] = s.score;
-                completionDict[s.levelName] = s.isCompleted;
-            }
-            return scoreDict;
+                dict[s.levelName] = s.score;
+            return dict;
         }
     }
 
@@ -109,6 +84,5 @@ public class GlobalScoreManager : MonoBehaviour
     {
         public string levelName;
         public float score;
-        public bool isCompleted;
     }
 }
