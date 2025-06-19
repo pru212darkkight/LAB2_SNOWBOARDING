@@ -3,7 +3,7 @@
 public class SpeedItem : MonoBehaviour
 {
     [SerializeField] private float speedBoostAmount = 20f;   // Lượng lực boost thêm
-    [SerializeField] private float boostDuration = 6f;       // Tổng thời gian hiệu lực (3s tăng dần + 3s giữ nguyên)
+    [SerializeField] private float boostDuration = 3f;       // Tổng thời gian hiệu lực (3s tăng dần + 3s giữ nguyên)
 
     private void OnTriggerEnter2D(Collider2D other)
     {
