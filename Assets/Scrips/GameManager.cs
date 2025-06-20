@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
             settingsButton.onClick.AddListener(() => OpenSettings(pausePanel));
         if (settingsCloseButton != null)
             settingsCloseButton.onClick.AddListener(CloseSettings);
+
+        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.gameMusic);
     }
 
     private void Update()

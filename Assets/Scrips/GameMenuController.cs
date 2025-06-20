@@ -67,6 +67,8 @@ public class GameMenuController : MonoBehaviour
 
         InitializeOptionPages();
         StartCoroutine(DelayedInit());
+
+        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.gameMusic);
     }
 
     private IEnumerator DelayedInit()
@@ -112,11 +114,13 @@ public class GameMenuController : MonoBehaviour
 
     private void OnPlayButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         gameLevelPanel?.SetActive(true);
     }
 
     private void OnOptionButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         gameLevelPanel?.SetActive(false);
         optionPanel?.SetActive(true);
         menuButtonsContainer?.SetActive(false);
@@ -125,12 +129,14 @@ public class GameMenuController : MonoBehaviour
 
     private void OnOkOptionButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         optionPanel?.SetActive(false);
         menuButtonsContainer?.SetActive(true);
     }
 
     private void OnExitButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -140,11 +146,13 @@ public class GameMenuController : MonoBehaviour
 
     private void OnCloseButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         gameLevelPanel?.SetActive(false);
     }
 
     private void LoadLevel(string sceneName)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         PlayerPrefs.SetString("LastPlayedScene", sceneName);
         PlayerPrefs.Save();
         SceneManager.LoadScene(sceneName);
