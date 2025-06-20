@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
             settingsButton.onClick.AddListener(() => OpenSettings(pausePanel));
         if (settingsCloseButton != null)
             settingsCloseButton.onClick.AddListener(CloseSettings);
+
+        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.gameMusic);
     }
 
     private void Update()
@@ -117,6 +119,13 @@ public class GameManager : MonoBehaviour
                     // Store current velocities when pausing
                     savedVelocity = rb.linearVelocity;
                     savedAngularVelocity = rb.angularVelocity;
+                    // Thông báo cho player về việc pause
+                    player.OnGamePaused();
+                }
+                else
+                {
+                    // Thông báo cho player về việc resume
+                    player.OnGameResumed();
                 }
             }
         }
@@ -142,10 +151,17 @@ public class GameManager : MonoBehaviour
             settingsPanel.SetActive(false);
         }
 
+        // Unpause the game first
+        isPaused = false;
+        Time.timeScale = 1f;
+
         // Find and reset player's physics
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null)
         {
+            // Thông báo cho player về việc resume
+            player.OnGameResumed();
+
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -154,10 +170,6 @@ public class GameManager : MonoBehaviour
                 rb.angularVelocity = savedAngularVelocity;
             }
         }
-
-        // Unpause the game
-        isPaused = false;
-        Time.timeScale = 1f;
     }
 
     public void ExitToMenu()
