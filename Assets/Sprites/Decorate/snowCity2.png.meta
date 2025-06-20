@@ -1,10 +1,55 @@
 fileFormatVersion: 2
-guid: 2928124e798deb44c8a07a4129f1be48
+guid: 301bee1edbf20a849b6332e84ecd846c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5225540622116197949
-    second: 02_0
+      213: -8391426226915339213
+    second: snowCity2_0
+  - first:
+      213: 4054159174930765990
+    second: snowCity2_1
+  - first:
+      213: 7086455243849125852
+    second: snowCity2_2
+  - first:
+      213: -3070599123284931706
+    second: snowCity2_3
+  - first:
+      213: 1421109507520109368
+    second: snowCity2_4
+  - first:
+      213: -8432216326237336134
+    second: snowCity2_5
+  - first:
+      213: 5535134640357233675
+    second: snowCity2_6
+  - first:
+      213: 349829759149398955
+    second: snowCity2_7
+  - first:
+      213: -6929635910038230106
+    second: snowCity2_8
+  - first:
+      213: 3847932343274661162
+    second: snowCity2_9
+  - first:
+      213: -4676249531625793454
+    second: snowCity2_10
+  - first:
+      213: -1872434813570090409
+    second: snowCity2_11
+  - first:
+      213: -829268596406146189
+    second: snowCity2_12
+  - first:
+      213: -1114037068606003333
+    second: snowCity2_13
+  - first:
+      213: -8558124976092120789
+    second: snowCity2_14
+  - first:
+      213: 7218250615017148191
+    second: snowCity2_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,7 +142,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +155,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,23 +171,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02_0
+      name: snowCity2_14
       rect:
         serializedVersion: 2
-        x: 67
-        y: 0
-        width: 60
-        height: 75
+        x: 0
+        y: 105
+        width: 642
+        height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c9e3638d762b77b0800000000000000
-      internalID: -5225540622116197949
+      spriteID: b2971a85dae6b3980800000000000000
+      internalID: -8558124976092120789
       vertices: []
       indices: 
       edges: []
@@ -151,7 +196,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 56cc50209076e7a459964e0556348e0a
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +206,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      02_0: -5225540622116197949
+      snowCity2_0: -8391426226915339213
+      snowCity2_1: 4054159174930765990
+      snowCity2_10: -4676249531625793454
+      snowCity2_11: -1872434813570090409
+      snowCity2_12: -829268596406146189
+      snowCity2_13: -1114037068606003333
+      snowCity2_14: -8558124976092120789
+      snowCity2_15: 7218250615017148191
+      snowCity2_2: 7086455243849125852
+      snowCity2_3: -3070599123284931706
+      snowCity2_4: 1421109507520109368
+      snowCity2_5: -8432216326237336134
+      snowCity2_6: 5535134640357233675
+      snowCity2_7: 349829759149398955
+      snowCity2_8: -6929635910038230106
+      snowCity2_9: 3847932343274661162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
