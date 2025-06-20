@@ -6,6 +6,7 @@ public class ScoreItem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.getStars);
             ScoreManager.Instance.AddScore(100f);
             Destroy(gameObject); 
         }

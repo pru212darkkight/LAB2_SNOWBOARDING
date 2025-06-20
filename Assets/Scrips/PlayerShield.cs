@@ -11,6 +11,7 @@ public class PlayerShield : MonoBehaviour
 
     public void ActivateShield(float duration)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.getShields);
         if (helmetShieldInstance != null)
         {
             Destroy(helmetShieldInstance);
@@ -61,6 +62,7 @@ public class PlayerShield : MonoBehaviour
         }
 
         IsShieldActive = false; // Tắt khiên
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         anim = null;
     }
 

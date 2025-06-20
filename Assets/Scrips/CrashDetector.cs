@@ -27,6 +27,7 @@ public class CrashDetector : MonoBehaviour
                 Debug.Log($"Saving score: {currentScore}");
                 GlobalScoreManager.Instance.SaveScore(currentScore);
             }
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.loseMusic);
             GameManager.Instance.ShowGameOverWithDelay(loadDelay);
         }
     }

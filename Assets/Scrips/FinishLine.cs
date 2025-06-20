@@ -10,6 +10,7 @@ public class FinishLine : MonoBehaviour
         // Kiểm tra nếu gameObject cha có tag Player
         if (collision.transform.root.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.winMusic);
             Debug.Log("finish map");
             GameManager.Instance.ShowWinPanelWithDelay(loadDelay);
         }
