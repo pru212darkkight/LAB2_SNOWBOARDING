@@ -15,6 +15,7 @@ public class GameMenuController : MonoBehaviour
     [Header("Option Panel Pages")]
     [SerializeField] private GameObject page1Container;
     [SerializeField] private GameObject page2Container;
+    [SerializeField] private GameObject page3Container;
     [SerializeField] private Button nextPageButton;
     [SerializeField] private Button prevPageButton;
     private int currentPage = 1;
@@ -81,6 +82,7 @@ public class GameMenuController : MonoBehaviour
     {
         page1Container?.SetActive(true);
         page2Container?.SetActive(false);
+        page3Container?.SetActive(false);
         prevPageButton?.gameObject.SetActive(false);
         nextPageButton?.gameObject.SetActive(true);
         currentPage = 1;
@@ -93,6 +95,14 @@ public class GameMenuController : MonoBehaviour
             page1Container?.SetActive(false);
             page2Container?.SetActive(true);
             currentPage = 2;
+
+            prevPageButton?.gameObject.SetActive(true);
+            nextPageButton?.gameObject.SetActive(true);
+        } else if (currentPage == 2)
+        {
+            page2Container?.SetActive(false);
+            page3Container?.SetActive(true);
+            currentPage = 3;
 
             prevPageButton?.gameObject.SetActive(true);
             nextPageButton?.gameObject.SetActive(false);
@@ -108,6 +118,14 @@ public class GameMenuController : MonoBehaviour
             currentPage = 1;
 
             prevPageButton?.gameObject.SetActive(false);
+            nextPageButton?.gameObject.SetActive(true);
+        }
+        else if (currentPage == 3)
+        {
+            page3Container?.SetActive(false);
+            page2Container?.SetActive(true);
+            currentPage = 2;
+            prevPageButton?.gameObject.SetActive(true);
             nextPageButton?.gameObject.SetActive(true);
         }
     }
