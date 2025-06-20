@@ -41,6 +41,4 @@ public class StoneShieldInteraction : MonoBehaviour
             Debug.Log("Collider vật lý đã được bật lại");
         }
     }
-
-
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1621243491817237771}
   - component: {fileID: 5244044803238844128}
   - component: {fileID: 818828216806555129}
-  - component: {fileID: 4494436793986669710}
+  - component: {fileID: 9200959281750285293}
   m_Layer: 0
   m_Name: Gai
   m_TagString: Item
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0022710115, y: -0.04436016}
+  m_Offset: {x: 0.0102674365, y: -0.033554927}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,10 +175,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7050829, y: 0.47377968}
+  m_Size: {x: 0.68909, y: 0.3800464}
   m_EdgeRadius: 0
---- !u!58 &4494436793986669710
-CircleCollider2D:
+--- !u!61 &9200959281750285293
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -211,5 +211,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.015608898, y: -0.12706953}
-  m_Radius: 0.44479215
+  m_Offset: {x: 0.0026603937, y: 0.0008228645}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0625, y: 0.5625}
+    newSize: {x: 1.0625, y: 0.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.9505371, y: 0.44881576}
+  m_EdgeRadius: 0
