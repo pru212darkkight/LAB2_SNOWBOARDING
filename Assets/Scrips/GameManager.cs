@@ -201,6 +201,13 @@ public class GameManager : MonoBehaviour
         // Clear the singleton instance
         Instance = null;
 
+        // Reset spin state nếu player còn tồn tại trước khi load lại scene
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null)
+        {
+            player.ResetSpinState();
+        }
+
         // Load the scene
         SceneManager.LoadScene(currentSceneName);
 
@@ -233,27 +240,33 @@ public class GameManager : MonoBehaviour
     // Method to open game over panel with delay
     public void ShowGameOverWithDelay(float delay)
     {
-        Debug.Log($"ShowGameOverWithDelay called with delay: {delay}");
+        //Debug.Log($"ShowGameOverWithDelay called with delay: {delay}");
         if (gameOverPanel == null)
         {
             Debug.LogError("GameOver Panel is not assigned in GameManager!");
             return;
         }
         StartCoroutine(ShowGameOverCoroutine(delay));
-        Debug.Log("Started ShowGameOverCoroutine");
+        //Debug.Log("Started ShowGameOverCoroutine");
     }
 
     private IEnumerator ShowGameOverCoroutine(float delay)
     {
 
         yield return new WaitForSecondsRealtime(delay);
-        Debug.Log("ShowGameOver called");
+        //Debug.Log("ShowGameOver called");
         if (gameOverPanel != null)
         {
             isGameOver = true;
             gameOverPanel.SetActive(true);
             Time.timeScale = 0f;
-            Debug.Log("GameOver Panel activated");
+            //Debug.Log("GameOver Panel activated");
+        }
+
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null)
+        {
+            player.OnGameOver();
         }
     }
     public void ShowWinPanelWithDelay(float delay)
@@ -282,7 +295,7 @@ public class GameManager : MonoBehaviour
             GlobalScoreManager.Instance.MarkLevelCompleted();
 
             Time.timeScale = 0f;
-            Debug.Log("Level Complete! Win Panel activated");
+            //Debug.Log("Level Complete! Win Panel activated");
         }
 
         string currentScene = SceneManager.GetActiveScene().name;
@@ -296,6 +309,12 @@ public class GameManager : MonoBehaviour
                 case 3: winStarImage.sprite = star3Sprite; break;
                 default: winStarImage.sprite = star0Sprite; break;
             }
+        }
+
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null)
+        {
+            player.OnGameOverOrWin();
         }
     }
 
