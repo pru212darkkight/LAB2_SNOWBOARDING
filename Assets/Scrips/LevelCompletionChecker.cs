@@ -23,9 +23,9 @@ public static class LevelCompletionChecker
 
     private static Dictionary<string, (float, float, float)> starThresholds = new()
     {
-        { "Level1", (30f, 60f, 90f) },
-        { "Level2", (20f, 50f, 80f) },
-        { "Level3", (25f, 55f, 85f) }
+        { "Level1", (2000f, 3000f, 3600f) },
+        { "Level2", (5400f, 6400f, 7200f) },
+        { "Level3", (5400f, 6900f, 8500f) }
     };
 
     public static bool IsLevelCompleted(string levelName)
