@@ -175,6 +175,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -697,7 +710,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      elsa-Photoroom_0: 8630111797370058639
+      elsa-Photoroom_1: -8843765629537634202
+      elsa-Photoroom_10: -2782674211628911824
+      elsa-Photoroom_11: 9161826721608445318
+      elsa-Photoroom_12: 2733288710179580592
+      elsa-Photoroom_13: 5541091622610681583
+      elsa-Photoroom_14: 7289799147668635357
+      elsa-Photoroom_15: 4542935274238922487
+      elsa-Photoroom_16: -8066092177376770203
+      elsa-Photoroom_17: -1881375071600014668
+      elsa-Photoroom_18: -1289328290285250768
+      elsa-Photoroom_19: 4269263206512892095
+      elsa-Photoroom_2: -4184090118667603624
+      elsa-Photoroom_20: -8519354337127762063
+      elsa-Photoroom_21: -5605364423905931001
+      elsa-Photoroom_22: -2584182747229662947
+      elsa-Photoroom_3: 870631175822056510
+      elsa-Photoroom_4: 4200672460082632904
+      elsa-Photoroom_5: 277500604458787358
+      elsa-Photoroom_6: -3975747937126400176
+      elsa-Photoroom_7: 6346084121454783680
+      elsa-Photoroom_8: -1190837358228178762
+      elsa-Photoroom_9: -5632789786117522256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

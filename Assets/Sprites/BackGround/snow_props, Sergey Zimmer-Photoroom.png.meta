@@ -136,6 +136,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -372,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snow_props, Sergey Zimmer-Photoroom_0: -1291191547063334940
+      snow_props, Sergey Zimmer-Photoroom_1: 4787602171826954641
+      snow_props, Sergey Zimmer-Photoroom_2: -4669488796835842499
+      snow_props, Sergey Zimmer-Photoroom_3: 6566566780714810907
+      snow_props, Sergey Zimmer-Photoroom_4: 2273552032777094245
+      snow_props, Sergey Zimmer-Photoroom_5: -135218483900021006
+      snow_props, Sergey Zimmer-Photoroom_6: -4782994477894453665
+      snow_props, Sergey Zimmer-Photoroom_7: -154321660096098365
+      snow_props, Sergey Zimmer-Photoroom_8: -6808132926323301374
+      snow_props, Sergey Zimmer-Photoroom_9: 4879169477523168839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
