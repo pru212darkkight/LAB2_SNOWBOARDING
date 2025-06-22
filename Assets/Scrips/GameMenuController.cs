@@ -15,6 +15,7 @@ public class GameMenuController : MonoBehaviour
     [Header("Option Panel Pages")]
     [SerializeField] private GameObject page1Container;
     [SerializeField] private GameObject page2Container;
+    [SerializeField] private GameObject page3Container;
     [SerializeField] private Button nextPageButton;
     [SerializeField] private Button prevPageButton;
     private int currentPage = 1;
@@ -67,6 +68,8 @@ public class GameMenuController : MonoBehaviour
 
         InitializeOptionPages();
         StartCoroutine(DelayedInit());
+
+        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.backgroundMusic);
     }
 
     private IEnumerator DelayedInit()
@@ -79,6 +82,7 @@ public class GameMenuController : MonoBehaviour
     {
         page1Container?.SetActive(true);
         page2Container?.SetActive(false);
+        page3Container?.SetActive(false);
         prevPageButton?.gameObject.SetActive(false);
         nextPageButton?.gameObject.SetActive(true);
         currentPage = 1;
@@ -86,11 +90,20 @@ public class GameMenuController : MonoBehaviour
 
     private void OnNextPageClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         if (currentPage == 1)
         {
             page1Container?.SetActive(false);
             page2Container?.SetActive(true);
             currentPage = 2;
+
+            prevPageButton?.gameObject.SetActive(true);
+            nextPageButton?.gameObject.SetActive(true);
+        } else if (currentPage == 2)
+        {
+            page2Container?.SetActive(false);
+            page3Container?.SetActive(true);
+            currentPage = 3;
 
             prevPageButton?.gameObject.SetActive(true);
             nextPageButton?.gameObject.SetActive(false);
@@ -99,6 +112,7 @@ public class GameMenuController : MonoBehaviour
 
     private void OnPrevPageClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         if (currentPage == 2)
         {
             page1Container?.SetActive(true);
@@ -108,15 +122,25 @@ public class GameMenuController : MonoBehaviour
             prevPageButton?.gameObject.SetActive(false);
             nextPageButton?.gameObject.SetActive(true);
         }
+        else if (currentPage == 3)
+        {
+            page3Container?.SetActive(false);
+            page2Container?.SetActive(true);
+            currentPage = 2;
+            prevPageButton?.gameObject.SetActive(true);
+            nextPageButton?.gameObject.SetActive(true);
+        }
     }
 
     private void OnPlayButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         gameLevelPanel?.SetActive(true);
     }
 
     private void OnOptionButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         gameLevelPanel?.SetActive(false);
         optionPanel?.SetActive(true);
         menuButtonsContainer?.SetActive(false);
@@ -125,12 +149,14 @@ public class GameMenuController : MonoBehaviour
 
     private void OnOkOptionButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         optionPanel?.SetActive(false);
         menuButtonsContainer?.SetActive(true);
     }
 
     private void OnExitButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -140,11 +166,13 @@ public class GameMenuController : MonoBehaviour
 
     private void OnCloseButtonClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         gameLevelPanel?.SetActive(false);
     }
 
     private void LoadLevel(string sceneName)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playButtonClickSound);
         PlayerPrefs.SetString("LastPlayedScene", sceneName);
         PlayerPrefs.Save();
         SceneManager.LoadScene(sceneName);

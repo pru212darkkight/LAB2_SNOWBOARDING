@@ -31,6 +31,9 @@ public class WoodItem : MonoBehaviour
                 animator.SetTrigger("Activate");
             }
 
+            // Phát âm thanh khi va chạm
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.getWood);
+
             PlayerController player = other.GetComponent<PlayerController>();
 
             if (player != null)
