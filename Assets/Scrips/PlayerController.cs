@@ -366,6 +366,7 @@ public class PlayerController : MonoBehaviour
     //
     public void ActivateShield(float duration)
     {
+
         if (isShieldActive)
         {
             Debug.Log("Shield already active.");
@@ -386,6 +387,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isShieldActive = true;
+        SetItemCollidersActive(false); // Tắt va chạm Item
         StartCoroutine(ShieldRoutine(duration));
     }
 
@@ -413,7 +415,7 @@ public class PlayerController : MonoBehaviour
         shieldAnim = null;
         isShieldActive = false;
         AudioManager.Instance.PlaySFX(AudioManager.Instance.getShieldDisappear);
-        ReactivateAllStoneColliders();
+        SetItemCollidersActive(true);
 
         StartCoroutine(DelayedReactivation());
     }
@@ -442,6 +444,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(ShieldCooldownBuffer());
         Debug.Log("Khiên đã bị hủy sớm do va chạm.");
+        
     }
     private IEnumerator ShieldCooldownBuffer()
     {
@@ -449,22 +452,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f); // Khoảng đệm để tránh va chạm kép
         isShieldCooldown = false;
     }
-    private void ReactivateAllStoneColliders()
-    {
-        StoneShieldInteraction[] stones = Object.FindObjectsByType<StoneShieldInteraction>(
-         FindObjectsSortMode.None
-     );
-
-        foreach (var stone in stones)
-        {
-            stone.ReactivateCollider();
-        }
-    }
+   
 
     private IEnumerator DelayedReactivation()
     {
-        yield return new WaitForSeconds(1.5f); // để player rời khỏi vùng va chạm
-        ReactivateAllStoneColliders();
+        yield return new WaitForSeconds(0.1f); // để player rời khỏi vùng va chạm
+        SetItemCollidersActive(true);
     }
 
     // Hàm public để GameManager có thể gọi khi pause/resume
@@ -555,5 +548,19 @@ public class PlayerController : MonoBehaviour
         spinCount = 0;
         accumulatedRotation = 0f;
         lastZRotation = transform.eulerAngles.z;
+    }
+
+    private void SetItemCollidersActive(bool isActive)
+    {
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+
+        foreach (var item in items)
+        {
+            if (item == null) continue;
+
+            var col = item.GetComponent<Collider2D>();
+            if (col != null)
+                col.enabled = isActive;
+        }
     }
 }
