@@ -90,6 +90,7 @@ public class GameMenuController : MonoBehaviour
 
     private void OnNextPageClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         if (currentPage == 1)
         {
             page1Container?.SetActive(false);
@@ -111,6 +112,7 @@ public class GameMenuController : MonoBehaviour
 
     private void OnPrevPageClick()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.optionButtonClickSound);
         if (currentPage == 2)
         {
             page1Container?.SetActive(true);
