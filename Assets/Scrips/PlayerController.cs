@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float decelerationRate = 2.2f;       // Độ ma sát - càng lớn dừng càng nhanh
     [SerializeField] private float minSpeedThreshold = 2f;      // Tốc độ tối thiểu để duy trì chuyển động
     [SerializeField] private float gravityMultiplier = 2.2f;    // Hệ số trọng lực - càng lớn càng nặng
-    [SerializeField] private float moveForce = 10f;             // Lực di chuyển khi nhấn A/D - càng lớn di chuyển càng nhanh
+    [SerializeField] private float moveForce = 10f;           
 
     // --- HỆ THỐNG CÂN BẰNG ---
     [SerializeField] private float balanceForce = 3f;         // Lực giữ thăng bằng - càng lớn càng khó nghiêng
