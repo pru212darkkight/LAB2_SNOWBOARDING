@@ -9,6 +9,8 @@ public class HelmetItem : MonoBehaviour
             PlayerController controller = other.GetComponent<PlayerController>();
             if (controller != null)
             {
+                //âm thanh nhận khiên
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.getShields);
                 controller.ActivateShield(5f);
             }
 

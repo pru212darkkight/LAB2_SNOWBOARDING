@@ -6949,16 +6949,21 @@ MonoBehaviour:
   backgroundMusic:
   - {fileID: 8300000, guid: 648ce4d9422544b40acfc19c4a5c4e26, type: 3}
   - {fileID: 8300000, guid: 35ec1a347559dfb49bad7e3df8a075bd, type: 3}
+  - {fileID: 8300000, guid: 5fe0b6f21be978b42a7988b5b5858dfc, type: 3}
   gameMusic:
   - {fileID: 8300000, guid: 648ce4d9422544b40acfc19c4a5c4e26, type: 3}
   - {fileID: 8300000, guid: 9858911e1dd5aa24695a5a0bdb0fb088, type: 3}
-  - {fileID: 8300000, guid: 8384c6cf707c54b4e862e54cd1af9089, type: 3}
+  - {fileID: 8300000, guid: bfdd3304634718d47b07f9f471703aae, type: 3}
   playButtonClickSound: {fileID: 8300000, guid: 2afef29b57792fb439640672c1d92c5a, type: 3}
   optionButtonClickSound: {fileID: 8300000, guid: 8f16884cafe18bd42926c7ef8ce42025, type: 3}
   getStars: {fileID: 8300000, guid: 29f9332fafd7a8b4f8811dce9f489d88, type: 3}
   getShields: {fileID: 8300000, guid: a14dee3220577664dae5516d20d7ad1e, type: 3}
   winMusic: {fileID: 8300000, guid: bd3e33aa2d40f984eb7333b3752b10c3, type: 3}
   loseMusic: {fileID: 8300000, guid: ca83a26316ea77940b05596626a3a859, type: 3}
+  getShieldDisappear: {fileID: 8300000, guid: 60fc33a441781544dafc6d4aba3b0af5, type: 3}
+  getHurt: {fileID: 8300000, guid: 207d537d1b279714489332bb03a286f6, type: 3}
+  getWood: {fileID: 8300000, guid: 6357391743af3a34ca2c84f4ddc5c9a7, type: 3}
+  upgradeLevel: {fileID: 8300000, guid: 8384c6cf707c54b4e862e54cd1af9089, type: 3}
 --- !u!82 &1894031718
 AudioSource:
   m_ObjectHideFlags: 0

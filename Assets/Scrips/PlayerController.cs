@@ -412,6 +412,7 @@ public class PlayerController : MonoBehaviour
         helmetShieldInstance = null;
         shieldAnim = null;
         isShieldActive = false;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.getShieldDisappear);
         ReactivateAllStoneColliders();
 
         StartCoroutine(DelayedReactivation());

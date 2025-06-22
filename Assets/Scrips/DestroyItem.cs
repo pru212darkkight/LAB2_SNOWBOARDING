@@ -7,7 +7,7 @@ public class DestroyItem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Đã va chạm với: " + other.name);
-
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.getHurt);
         if (other.CompareTag("Player"))
         {
             PlayerController controller = other.GetComponent<PlayerController>();

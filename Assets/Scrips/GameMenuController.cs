@@ -69,7 +69,7 @@ public class GameMenuController : MonoBehaviour
         InitializeOptionPages();
         StartCoroutine(DelayedInit());
 
-        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.gameMusic);
+        AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.backgroundMusic);
     }
 
     private IEnumerator DelayedInit()
