@@ -95,7 +95,7 @@ public class ScoreManager : MonoBehaviour
         ShowSpinBonus(bonus);
         Debug.Log("Spin: " + spinCount + " | Bonus spin score: " + bonus);
     }
-    private void ShowSpinBonus(int bonus)
+    public void ShowSpinBonus(int bonus)
     {
         if (spinBonusCoroutine != null)
             StopCoroutine(spinBonusCoroutine);
@@ -103,11 +103,11 @@ public class ScoreManager : MonoBehaviour
         spinBonusCoroutine = StartCoroutine(SpinBonusRoutine(bonus));
     }
 
-    private IEnumerator SpinBonusRoutine(int bonus)
+    public IEnumerator SpinBonusRoutine(int bonus)
     {
         spinBonusText.text = "+" + bonus.ToString();
         spinBonusText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         spinBonusText.gameObject.SetActive(false);
     }
 

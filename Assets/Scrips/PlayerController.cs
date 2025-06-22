@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         // Cập nhật isGrounded trước tiên
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.6f, groundLayer);
-        Debug.Log($"Frame: isGrounded={isGrounded}, wasGroundedLastFrame={wasGroundedLastFrame}");
+        //Debug.Log($"Frame: isGrounded={isGrounded}, wasGroundedLastFrame={wasGroundedLastFrame}");
 
 
         // Kiểm tra nếu game bị pause thì không xử lý input
