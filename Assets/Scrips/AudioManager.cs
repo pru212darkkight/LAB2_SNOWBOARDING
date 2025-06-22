@@ -23,7 +23,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip getShields;
     public AudioClip winMusic;
     public AudioClip loseMusic;
-
+    public AudioClip getShieldDisappear;
+    public AudioClip getHurt;
+    public AudioClip getWood;
+    public AudioClip upgradeLevel;
     private const string SFX_VOLUME_KEY = "SFXVolume";
     private const string MUSIC_VOLUME_KEY = "MusicVolume";
 

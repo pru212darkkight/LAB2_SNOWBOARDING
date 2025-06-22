@@ -139,6 +139,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -397,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_0": 334096848318986128
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_1": 2441684431064585525
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_10": -2650241987523831853
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_2": 7504098873190057236
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_3": 6898725757463325555
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_4": 6715442295797776795
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_5": -1721560500351454459
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_6": 7439514588224572852
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_7": -2452917594125681016
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_8": 2634258321796108594
+      "\u041F\u0420\u0418\u041C\u0415\u0420\u042B _\u041A\u0410\u041C\u0415\u041D\u042C_-Photoroom_9": 7384527383443550204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

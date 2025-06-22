@@ -121,6 +121,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -247,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      60 Low poly Ice Cave Modulars - 240112, mega3d-Photoroom_0: 8094864399767987983
+      60 Low poly Ice Cave Modulars - 240112, mega3d-Photoroom_1: 2909696695724826661
+      60 Low poly Ice Cave Modulars - 240112, mega3d-Photoroom_2: -2532501702381071795
+      60 Low poly Ice Cave Modulars - 240112, mega3d-Photoroom_3: -4553665142795907932
+      60 Low poly Ice Cave Modulars - 240112, mega3d-Photoroom_4: -6216200565984442673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

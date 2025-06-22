@@ -331,6 +331,7 @@ public class GameManager : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.upgradeLevel);
         }
         else
         {

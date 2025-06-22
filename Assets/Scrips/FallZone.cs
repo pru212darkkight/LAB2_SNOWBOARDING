@@ -9,7 +9,7 @@ public class FallZone : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player rơi xuống vực - Game Over!");
-
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.loseMusic);
             if (GameManager.Instance == null)
             {
                 Debug.LogError("GameManager.Instance is null!");
