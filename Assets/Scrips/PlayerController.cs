@@ -37,6 +37,19 @@ public class PlayerController : MonoBehaviour
     private bool isShieldActive = false;
     private bool isPaused = false;
 
+    //Cho kiểm tra xoay
+    private bool wasGroundedLastFrame = true;
+    private float lastZRotation = 0f;
+    private float accumulatedRotation = 0f;
+    private int spinCount = 0;
+
+    private float airborneTime = 0f;
+    private float airborneThreshold = 0.5f; // Thời gian tối thiểu ở trên không để bắt đầu tính spin
+
+    private bool isGamePaused = false;
+    private bool isGameOverOrWin = false;
+    private bool isGameOver = false;
+
     private void Awake()
     {
         // Khởi tạo các component cần thiết
@@ -58,6 +71,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Cập nhật isGrounded trước tiên
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.6f, groundLayer);
+        Debug.Log($"Frame: isGrounded={isGrounded}, wasGroundedLastFrame={wasGroundedLastFrame}");
+
+
         // Kiểm tra nếu game bị pause thì không xử lý input
         if (Time.timeScale == 0f)
         {
@@ -76,8 +94,6 @@ public class PlayerController : MonoBehaviour
         UpdateAnimation();
     }
 
-
-
     void FixedUpdate()
     {
         // Không xử lý physics khi game bị pause
@@ -90,7 +106,6 @@ public class PlayerController : MonoBehaviour
             if (rb.linearVelocity.magnitude > maxSpeed)
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
-
 
         if (isGrounded)
         {
@@ -116,7 +131,6 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(rb.angularVelocity) > 0.1f)
             rb.angularVelocity *= 0.98f;
     }
-
 
     private void ApplyStability()
     {
@@ -205,14 +219,12 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-0.4f, 0.45f, 1);
     }
 
-
     private void HandleJump()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.6f, groundLayer);
     }
 
     private void UpdateAnimation()
@@ -234,10 +246,8 @@ public class PlayerController : MonoBehaviour
         return isGrounded;
     }
 
-
     private Coroutine slowCoroutine;
     private float originalDrag = 0f;
-
 
     public void ReduceSpeedTemporarily(float factor, float duration)
     {
@@ -248,7 +258,6 @@ public class PlayerController : MonoBehaviour
 
         slowCoroutine = StartCoroutine(SlowDownCoroutine(factor, duration));
     }
-
 
     private IEnumerator SlowDownCoroutine(float factor, float duration)
     {
@@ -268,7 +277,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
 
     /// tăng tốc
     // Biến hỗ trợ tăng tốc
@@ -354,7 +362,6 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = targetVelocity;
         isDeceleratingAfterBoost = false;
     }
-
 
     //
     public void ActivateShield(float duration)
@@ -469,5 +476,83 @@ public class PlayerController : MonoBehaviour
     {
         isPaused = false;
     }
-}
 
+    public void OnGameOverOrWin()
+    {
+        isGameOverOrWin = true;
+    }
+
+    public void OnRestartOrNextLevel()
+    {
+        isGameOverOrWin = false;
+    }
+
+    public void OnGameOver()
+    {
+        isGameOver = true;
+    }
+
+    void LateUpdate()
+    {
+        if (isGamePaused || isGameOverOrWin || isGameOver)
+            return;
+
+        // Vừa rời khỏi mặt đất (bắt đầu nhảy)
+        if (wasGroundedLastFrame && !isGrounded)
+        {
+            accumulatedRotation = 0f;
+            spinCount = 0;
+            lastZRotation = transform.eulerAngles.z;
+            airborneTime = 0f;
+        }
+
+        // Đang ở trên không
+        if (!isGrounded)
+        {
+            airborneTime += Time.deltaTime;
+            if (airborneTime > airborneThreshold)
+            {
+                float currentZ = transform.eulerAngles.z;
+                float delta = Mathf.DeltaAngle(lastZRotation, currentZ);
+                accumulatedRotation += Mathf.Abs(delta);
+                lastZRotation = currentZ;
+
+                while (accumulatedRotation >= 360f)
+                {
+                    spinCount++;
+                    accumulatedRotation -= 360f;
+                }
+                //Debug.Log($"[SPIN] accumulatedRotation: {accumulatedRotation}° | spinCount: {spinCount}");
+            }
+        }
+
+        // Vừa tiếp đất
+        if (!wasGroundedLastFrame && isGrounded)
+        {
+            // Tính số vòng hoàn chỉnh kể cả vòng dư
+            float totalRotation = spinCount * 360f + accumulatedRotation;
+            int totalSpin = Mathf.FloorToInt((totalRotation + 90f) / 360f); // +30 để dễ ăn bonus khi suýt đủ 1 vòng
+
+            if (totalSpin > 0)
+                //Debug.Log($"[SPIN] Sắp gọi AddSpinScore({totalSpin})");
+            ScoreManager.Instance.AddSpinScore(totalSpin);
+            //Debug.Log($"[SPIN] Đã gọi AddSpinScore({totalSpin})");
+
+            //Debug.Log($"[SPIN] OnLand - accumulatedRotation: {accumulatedRotation}° | spinCount: {spinCount}");
+
+            spinCount = 0;
+            accumulatedRotation = 0f;
+            lastZRotation = transform.eulerAngles.z;
+            airborneTime = 0f;
+        }
+        wasGroundedLastFrame = isGrounded;
+    }
+
+    public void ResetSpinState()
+    {
+        wasGroundedLastFrame = true;
+        spinCount = 0;
+        accumulatedRotation = 0f;
+        lastZRotation = transform.eulerAngles.z;
+    }
+}

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private TextMeshProUGUI spinBonusText;
+    private Coroutine spinBonusCoroutine;
+
 
     private float score = 0f;
     private float maxXPos = 0f;
@@ -77,6 +81,34 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         UpdateScoreText();
+    }
+    public void AddSpinScore(int spinCount)
+    {
+        if (spinCount <= 0) return;
+        int bonus = 0;
+        if (spinCount == 1)
+            bonus = 100;
+        else
+            bonus = 100 + (spinCount - 1) * 150;
+
+        AddScore(bonus);
+        ShowSpinBonus(bonus);
+        Debug.Log("Spin: " + spinCount + " | Bonus spin score: " + bonus);
+    }
+    private void ShowSpinBonus(int bonus)
+    {
+        if (spinBonusCoroutine != null)
+            StopCoroutine(spinBonusCoroutine);
+
+        spinBonusCoroutine = StartCoroutine(SpinBonusRoutine(bonus));
+    }
+
+    private IEnumerator SpinBonusRoutine(int bonus)
+    {
+        spinBonusText.text = "+" + bonus.ToString();
+        spinBonusText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        spinBonusText.gameObject.SetActive(false);
     }
 
 }
