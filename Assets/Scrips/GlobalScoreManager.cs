@@ -10,6 +10,8 @@ public class GlobalScoreManager : MonoBehaviour
     private Dictionary<string, float> highScoresPerLevel = new();
     private Dictionary<string, bool> completedLevels = new();
 
+    // Key dùng cho PlayerPrefs trên WebGL
+    private string SaveKey => "highscores_json";
     private string SavePath => Path.Combine(Application.persistentDataPath, "highscores.json");
 
     private void Awake()
@@ -34,8 +36,11 @@ public class GlobalScoreManager : MonoBehaviour
         {
             highScoresPerLevel[scene] = newScore;
             SaveScoresToFile();
-            Debug.Log($"Đang thử lưu điểm {newScore} ở scene {scene}");
-            Debug.Log("Saving to: " + SavePath);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Debug.Log($"[WebGL] Saving new high score for {scene}: {newScore}");
+#else
+            Debug.Log($"Saving to file: {SavePath}, Score: {newScore}");
+#endif
         }
     }
 
@@ -58,19 +63,63 @@ public class GlobalScoreManager : MonoBehaviour
 
     private void LoadScoresFromFile()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        try
+        {
+            if (PlayerPrefs.HasKey(SaveKey))
+            {
+                string json = PlayerPrefs.GetString(SaveKey);
+                Debug.Log($"[WebGL] Loading scores from PlayerPrefs: {json}");
+                ScoreWrapper wrapper = JsonUtility.FromJson<ScoreWrapper>(json);
+                highScoresPerLevel = wrapper?.ToDictionary(out completedLevels) ?? new();
+            }
+            else
+            {
+                Debug.Log("[WebGL] No saved scores found in PlayerPrefs");
+                highScoresPerLevel = new();
+                completedLevels = new();
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[WebGL] Error loading scores: {e.Message}");
+            highScoresPerLevel = new();
+            completedLevels = new();
+        }
+#else
         if (File.Exists(SavePath))
         {
             string json = File.ReadAllText(SavePath);
             ScoreWrapper wrapper = JsonUtility.FromJson<ScoreWrapper>(json);
             highScoresPerLevel = wrapper?.ToDictionary(out completedLevels) ?? new();
         }
+        else
+        {
+            highScoresPerLevel = new();
+            completedLevels = new();
+        }
+#endif
     }
 
     private void SaveScoresToFile()
     {
-        ScoreWrapper wrapper = new ScoreWrapper(highScoresPerLevel, completedLevels);
-        string json = JsonUtility.ToJson(wrapper, true);
-        File.WriteAllText(SavePath, json);
+        try
+        {
+            ScoreWrapper wrapper = new ScoreWrapper(highScoresPerLevel, completedLevels);
+            string json = JsonUtility.ToJson(wrapper, true);
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            PlayerPrefs.SetString(SaveKey, json);
+            PlayerPrefs.Save(); // Đảm bảo lưu ngay lập tức
+            Debug.Log($"[WebGL] Saved scores to PlayerPrefs: {json}");
+#else
+            File.WriteAllText(SavePath, json);
+#endif
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error saving scores: {e.Message}");
+        }
     }
 
     [System.Serializable]

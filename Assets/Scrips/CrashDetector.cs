@@ -10,23 +10,13 @@ public class CrashDetector : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             Debug.Log("game over");
-            //GlobalScoreManager.Instance.SaveScore(playerName, ScoreManager.Instance.GetScore());
 
             if (GameManager.Instance == null)
             {
                 Debug.LogError("GameManager.Instance is null!");
                 return;
             }
-            if (GlobalScoreManager.Instance == null)
-            {
-                Debug.LogError("GlobalScoreManager.Instance is null!");
-            }
-            else
-            {
-                float currentScore = ScoreManager.Instance.GetScore();
-                Debug.Log($"Saving score: {currentScore}");
-                GlobalScoreManager.Instance.SaveScore(currentScore);
-            }
+
             AudioManager.Instance.PlayMusic(AudioManager.Instance.loseMusic);
             GameManager.Instance.ShowGameOverWithDelay(loadDelay);
         }

@@ -1,67 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public static class LevelCompletionChecker
 {
-    private static string SavePath => Path.Combine(Application.persistentDataPath, "highscores.json");
-
-    [System.Serializable]
-    private class LevelScore
-    {
-        public string levelName;
-        public float score;
-        public bool isCompleted;
-    }
-
-    [System.Serializable]
-    private class ScoreWrapper
-    {
-        public List<LevelScore> scores = new();
-    }
-
     private static Dictionary<string, (float, float, float)> starThresholds = new()
     {
         { "Level1", (2000f, 3000f, 3600f) },
         { "Level2", (5400f, 6400f, 7200f) },
-        { "Level3", (5400f, 6900f, 8500f) }
+        { "Level3", (5400f, 6900f, 8500f) },
+        { "Level4", (4000f, 5000f, 6000f) },
+        { "Level5", (4500f, 5500f, 6500f) }
     };
 
     public static bool IsLevelCompleted(string levelName)
     {
-        var score = GetLevelScore(levelName);
-        return score != null && score.isCompleted;
+        if (GlobalScoreManager.Instance == null) return false;
+        return GlobalScoreManager.Instance.IsLevelCompleted(levelName);
     }
 
     public static int GetStarCount(string levelName)
     {
-        var levelScore = GetLevelScore(levelName);
-        if (levelScore == null || !levelScore.isCompleted) return 0;
+        if (GlobalScoreManager.Instance == null) return 0;
+
+        float score = GlobalScoreManager.Instance.GetScore(levelName);
+        bool isCompleted = GlobalScoreManager.Instance.IsLevelCompleted(levelName);
+
+        if (!isCompleted) return 0;
+
+        Debug.Log($"[Stars] Checking stars for {levelName} with score {score}");
 
         (float oneStar, float twoStar, float threeStar) thresholds =
-            starThresholds.ContainsKey(levelName) ? starThresholds[levelName] : (30f, 60f, 90f);
+            starThresholds.ContainsKey(levelName) ? starThresholds[levelName] : (2000f, 3000f, 4000f);
 
-        if (levelScore.score >= thresholds.threeStar) return 3;
-        if (levelScore.score >= thresholds.twoStar) return 2;
-        if (levelScore.score >= thresholds.oneStar) return 1;
+        Debug.Log($"[Stars] Thresholds for {levelName}: 1★={thresholds.oneStar}, 2★={thresholds.twoStar}, 3★={thresholds.threeStar}");
+
+        if (score >= thresholds.threeStar)
+        {
+            Debug.Log($"[Stars] {levelName} earned 3 stars with score {score} >= {thresholds.threeStar}");
+            return 3;
+        }
+        if (score >= thresholds.twoStar)
+        {
+            Debug.Log($"[Stars] {levelName} earned 2 stars with score {score} >= {thresholds.twoStar}");
+            return 2;
+        }
+        if (score >= thresholds.oneStar)
+        {
+            Debug.Log($"[Stars] {levelName} earned 1 star with score {score} >= {thresholds.oneStar}");
+            return 1;
+        }
+
+        Debug.Log($"[Stars] {levelName} earned 0 stars with score {score}");
         return 0;
-    }
-
-
-    private static LevelScore GetLevelScore(string levelName)
-    {
-        if (!File.Exists(SavePath)) return null;
-
-        try
-        {
-            string json = File.ReadAllText(SavePath);
-            ScoreWrapper wrapper = JsonUtility.FromJson<ScoreWrapper>(json);
-            return wrapper?.scores?.Find(s => s.levelName == levelName);
-        }
-        catch
-        {
-            return null;
-        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+    public static bool isGameOver = false;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Transform playerTransform;
@@ -41,6 +42,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
+        if (isGameOver) return;
         UpdateScoreBasedOnFurthestPosition();
     }
 
@@ -69,6 +71,7 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         maxXPos = playerTransform.position.x;
+        isGameOver = false;
         UpdateScoreText();
     }
 

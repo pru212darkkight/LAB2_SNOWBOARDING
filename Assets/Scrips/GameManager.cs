@@ -194,6 +194,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         isGameOver = false;
+        ScoreManager.isGameOver = false; // Reset biến isGameOver để điểm có thể tăng lại
 
         // Store the current scene name
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -252,12 +253,24 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShowGameOverCoroutine(float delay)
     {
-
         yield return new WaitForSecondsRealtime(delay);
         //Debug.Log("ShowGameOver called");
         if (gameOverPanel != null)
         {
             isGameOver = true;
+            ScoreManager.isGameOver = true; // Ngăn không cho tăng điểm nữa
+
+            // Đợi thêm một chút để player dừng hẳn
+            yield return new WaitForSecondsRealtime(0.5f);
+
+            // Lưu điểm sau khi đã dừng hẳn
+            if (GlobalScoreManager.Instance != null && ScoreManager.Instance != null)
+            {
+                float finalScore = ScoreManager.Instance.GetScore();
+                Debug.Log($"Saving final score: {finalScore}");
+                GlobalScoreManager.Instance.SaveScore(finalScore);
+            }
+
             gameOverPanel.SetActive(true);
             Time.timeScale = 0f;
             //Debug.Log("GameOver Panel activated");
@@ -289,11 +302,23 @@ public class GameManager : MonoBehaviour
         if (winPanel != null)
         {
             isLevelComplete = true;
-            winPanel.SetActive(true);
+            ScoreManager.isGameOver = true; // Ngăn không cho tăng điểm nữa
+
+            // Đợi thêm một chút để player dừng hẳn
+            yield return new WaitForSecondsRealtime(0.5f);
+
+            // Lưu điểm sau khi đã dừng hẳn
+            if (GlobalScoreManager.Instance != null && ScoreManager.Instance != null)
+            {
+                float finalScore = ScoreManager.Instance.GetScore();
+                Debug.Log($"[WIN] Saving final score: {finalScore}");
+                GlobalScoreManager.Instance.SaveScore(finalScore);
+            }
 
             // ✅ Lưu trạng thái hoàn thành level vào JSON
             GlobalScoreManager.Instance.MarkLevelCompleted();
 
+            winPanel.SetActive(true);
             Time.timeScale = 0f;
             //Debug.Log("Level Complete! Win Panel activated");
         }
@@ -325,6 +350,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         isLevelComplete = false;
+        ScoreManager.isGameOver = false; // Reset để điểm có thể tăng ở level mới
 
         // Load next scene
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;

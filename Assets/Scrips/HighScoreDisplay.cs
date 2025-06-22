@@ -5,18 +5,27 @@ using UnityEngine;
 public class HighScoreDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    private string currentScene;
 
     private void Start()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene().name;
+        UpdateScoreDisplay();
+    }
 
-        //Debug.Log($"Current Scene: {currentScene}");
+    private void Update()
+    {
+        UpdateScoreDisplay();
+    }
 
+    private void UpdateScoreDisplay()
+    {
         float highScore = GlobalScoreManager.Instance.GetScore(currentScene);
-        float currentScore = ScoreManager.Instance.GetScore(); 
+        float currentScore = ScoreManager.Instance.GetScore();
 
-        //Debug.Log($"High Score for {currentScene}: {highScore}");
-        //Debug.Log($"Current Score: {currentScore}");
+#if UNITY_WEBGL && !UNITY_EDITOR
+        Debug.Log($"[WebGL Score] Scene: {currentScene}, High: {highScore}, Current: {currentScore}");
+#endif
 
         scoreText.text = $"High Score: {Mathf.FloorToInt(highScore)}\nCurrent Score: {Mathf.FloorToInt(currentScore)}";
     }
