@@ -13,13 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject winPanel;
 
-    [Header("Buttons")]
-    [SerializeField] private Button closeButton;
-    [SerializeField] private Button exitButton;
-    [SerializeField] private Button playAgainButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button settingsCloseButton;
-
     [Header("Win Star UI")]
     [SerializeField] private Image winStarImage;
     [SerializeField] private Sprite star0Sprite;
@@ -65,17 +58,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (closeButton != null)
-            closeButton.onClick.AddListener(ResumeGame);
-        if (exitButton != null)
-            exitButton.onClick.AddListener(ExitToMenu);
-        if (playAgainButton != null)
-            playAgainButton.onClick.AddListener(RestartGame);
-        if (settingsButton != null)
-            settingsButton.onClick.AddListener(() => OpenSettings(pausePanel));
-        if (settingsCloseButton != null)
-            settingsCloseButton.onClick.AddListener(CloseSettings);
-
         AudioManager.Instance.PlayRandomMusic(AudioManager.Instance.gameMusic);
     }
 
@@ -85,6 +67,102 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && !isGameOver)
         {
             TogglePause();
+        }
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RefreshUIReferences();
+    }
+    private void RefreshUIReferences()
+    {
+        var canvas = GameObject.Find("Canvas");
+        if (canvas != null)
+        {
+            pausePanel = canvas.transform.Find("PausePanel")?.gameObject;
+            settingsPanel = canvas.transform.Find("SettingPanel")?.gameObject;
+            gameOverPanel = canvas.transform.Find("GameOverPanel")?.gameObject;
+            winPanel = canvas.transform.Find("WinPanel")?.gameObject;
+            winStarImage = canvas.transform.Find("Stars")?.GetComponent<Image>();
+        }
+        if (pausePanel != null)
+        {
+            var resumeBtn = pausePanel.transform.Find("CloseButton")?.GetComponent<Button>();
+            if (resumeBtn != null)
+            {
+                resumeBtn.onClick.RemoveAllListeners();
+                resumeBtn.onClick.AddListener(ResumeGame);
+            }
+            var exitBtn = pausePanel.transform.Find("ExitButton")?.GetComponent<Button>();
+            if (exitBtn != null)
+            {
+                exitBtn.onClick.RemoveAllListeners();
+                exitBtn.onClick.AddListener(ExitToMenu);
+            }
+            var settingBtn = pausePanel.transform.Find("SettingButton")?.GetComponent<Button>();
+            if (settingBtn != null)
+            {
+                settingBtn.onClick.RemoveAllListeners();
+                settingBtn.onClick.AddListener(() => OpenSettings(pausePanel));
+            }
+            var playAgainBtn = pausePanel.transform.Find("RestartGameButton")?.GetComponent<Button>();
+            if (playAgainBtn != null)
+            {
+                playAgainBtn.onClick.RemoveAllListeners();
+                playAgainBtn.onClick.AddListener(RestartGame);
+            }
+        }
+        if (settingsPanel != null)
+        {
+            var closeBtn = settingsPanel.transform.Find("CloseButton")?.GetComponent<Button>();
+            if (closeBtn != null)
+            {
+                closeBtn.onClick.RemoveAllListeners();
+                closeBtn.onClick.AddListener(CloseSettings);
+            }
+        }
+        if (gameOverPanel != null)
+        {
+            var restartBtn = gameOverPanel.transform.Find("RestartGameButton")?.GetComponent<Button>();
+            if (restartBtn != null)
+            {
+                restartBtn.onClick.RemoveAllListeners();
+                restartBtn.onClick.AddListener(RestartGame);
+            }
+            var exitBtn = gameOverPanel.transform.Find("ExitButton")?.GetComponent<Button>();
+            if (exitBtn != null)
+            {
+                exitBtn.onClick.RemoveAllListeners();
+                exitBtn.onClick.AddListener(ExitToMenu);
+            }
+            var settingBtn = gameOverPanel.transform.Find("SettingButton")?.GetComponent<Button>();
+            if (settingBtn != null)
+            {
+                settingBtn.onClick.RemoveAllListeners();
+                settingBtn.onClick.AddListener(() => OpenSettings(gameOverPanel));
+            }
+        }
+        if (winPanel != null)
+        {
+            var nextBtn = winPanel.transform.Find("NextLevelButton")?.GetComponent<Button>();
+            if (nextBtn != null)
+            {
+                nextBtn.onClick.RemoveAllListeners();
+                nextBtn.onClick.AddListener(NextLevel);
+            }
+            var exitBtn = winPanel.transform.Find("ExitButton")?.GetComponent<Button>();
+            if (exitBtn != null)
+            {
+                exitBtn.onClick.RemoveAllListeners();
+                exitBtn.onClick.AddListener(ExitToMenu);
+            }
         }
     }
 
