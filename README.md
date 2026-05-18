@@ -187,6 +187,9 @@ Assets/
 
 4. Open `Assets/Scenes/GameMenu.unity` and press **Play**
 
+### Play Online
+🎮 [Play on itch.io](https://hauhuynh2k4.itch.io/ice-quest)
+
 ---
 
 ## 🎮 Controls
